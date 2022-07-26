@@ -21,7 +21,7 @@ module.exports = merge(base, {
   devServer: {
     host: '0.0.0.0',
     contentBase: './',
-    port: 9088,
+    port: 9089,
     inline: true,
     hot: true,
     open: true,

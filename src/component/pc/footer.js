@@ -89,10 +89,8 @@ export default Vue.extend({
     async subscribe() {
       const reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
       if(reg.test(this.email)) {
-        const res = await instance.post('/emailSend', {
-          email: this.email
-        })
-        if (res.status === 1) {
+        const res = await instance.post('/emailSend', `email=${this.email}`)
+        if (res.status === 2) {
           alert(`${this.langs.subscribeThanks}${this.email}${this.langs.subscribeSuccess}`)
         }
       } else {
