@@ -1,0 +1,194 @@
+@import "./common.scss";
+@include b(home) {
+  .mb35 {
+    margin-bottom: rem(35);
+  }
+  margin-top: rem(-88);
+  @include e(container) {
+    padding: 0 rem(30);
+  }
+  @include e(banner) {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include m(container) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .outpost {
+        width: rem(535);
+        height: rem(142);
+        // box-shadow: 0px 0px 14px 1px rgba(4,0,0,0.3200);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      .readmore {
+        width: rem(322);
+        height: rem(90);
+        text-align: center;
+        line-height: rem(90);
+        font-size: rem(12);
+        color: #fff;
+        // background-color: #fad54d;
+        margin: 0 auto;
+        margin-top: rem(52);
+      }
+    }
+  }
+  @include e(box) {
+    margin-top: rem(35);
+    @include m(item) {
+      margin-bottom: rem(35);
+    }
+    // title
+    @include m(title) {
+      height: rem(27);
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
+      // img {
+      //   height: 100%;
+      //   object-fit: contain;  
+      // }
+      font-size: rem(36);
+      color: #fad54d;
+      text-align: center;
+      margin-bottom: rem(40);
+    }
+    // readmore
+    @include m(more) {
+      display: flex;
+      margin: 0 auto;
+      border: 2px solid #fad54d;
+      font-size: rem(30);
+      width: rem(320);
+      justify-content: center;
+      align-items: center;
+      height: rem(88);
+      color: #F7C700;
+    }
+  }
+
+  // game 列表
+  @include e(games) {
+    @include m(item) {
+      position: relative;
+      .img-box {
+        width: 100%;
+        height: rem(460);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .title {
+        position: absolute;
+        bottom: rem(20);
+        font-size: rem(30);
+        text-align: center;
+        font-weight: 400;
+        color: #FFFFFF;
+        overflow: hidden;
+        white-space:nowrap;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        width: calc(100% - 0.12rem);
+      }
+    }
+  }
+  // news
+  @include e(news) {
+    @include m(first) {
+      position: relative;
+      width: 100%;
+      height: rem(386);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .title {
+        position: absolute;
+        color: #FFFFFF;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 rem(18);
+        height: rem(68);
+        line-height: rem(68);
+        background: rgba(0, 0, 0, 0.7);
+        font-size: rem(28);
+        overflow: hidden;
+        white-space:nowrap;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+      }
+    }
+    @include m(item) {
+      margin-top: rem(20);
+      display: flex;
+      .img-box {
+        width: rem(210);
+        height: rem(140);
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .icon-play {    
+          width: rem(60);
+          height: rem(60);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: scale(0.5);
+          position: absolute;
+          background: url('../../images/wap/game/game-play.png') no-repeat;
+          background-size: contain;
+          transform: translate(-50%, -50%);
+        }
+      }
+      
+      .info {
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: rem(15) 0 rem(15) rem(20);
+        p:nth-child(1) {
+          font-size: rem(30);
+          font-weight: 500;
+          color: #4D4D4D;
+          overflow: hidden; 
+          text-overflow: ellipsis;
+          display: -webkit-box; 
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; 
+        }
+        p:nth-child(2) {
+          font-size: rem(22);
+          font-weight: 400;
+          color: #CFCFCF;
+        }
+      }
+    }
+    @include m(more) {
+      margin-top: rem(70);
+      margin-bottom: rem(62);
+    }
+  }
+} 

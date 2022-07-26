@@ -1,0 +1,51 @@
+@import "./common.scss";
+@include b(newsDetail) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include e(container) {
+    padding: 0 rem(33);
+  }
+  @include e(detail) {
+    flex: 1;
+    margin: rem(70) 0 rem(70)  0;
+    .title {
+      margin-top: rem(64);
+      font-size: rem(38);
+      line-height: rem(43);
+      font-weight: bold;
+      color: #191919;
+    }
+    .desc {
+      margin-top: rem(40);
+      font-size: rem(22);
+      font-weight: 400;
+      color: #8F8F8F;
+    }
+    .date {
+      margin-top: rem(40);
+      font-size: rem(22);
+      font-weight: 400;
+      color: #F5CB00;
+      padding-bottom: rem(40);
+      border-bottom: rem(2) solid #C7C7C7;
+    }
+    .content {
+      margin-top: rem(68);
+      * {
+        word-break: break-all;
+      }
+      p {
+        font-size: rem(26);
+        font-weight: 400;
+        color: #5C5C5C;
+        line-height: rem(40);
+        margin-bottom: rem(20);
+        img {
+          width: 100%!important;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+} 

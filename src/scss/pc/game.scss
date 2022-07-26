@@ -1,0 +1,427 @@
+@import "./common.scss";
+@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+
+.preview-game_video {
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  .video-container {
+    max-width: 800px;
+    width: 100%;
+    max-height: 450px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .icon-play {    
+      width: 118px;
+      height: 118px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: scale(0.8);
+      position: absolute;
+      background: url('../../images/pc/sprite-icon.png') no-repeat;
+      background-position: 0 0;
+      margin: -59px 0 0 -59px;
+    }
+  }
+}
+
+.preview-game_img{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+  img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  }
+}
+@include b(game) {
+  min-width: 1380px;
+  .mt62 {
+    margin-top: 62px;
+  }
+  @include e(title) {
+    font-size: 32px;
+    font-family: SourceHanSansCN;
+    font-weight: 800;
+    color: #F7C700;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 29px;
+    @include m(left) {
+      height: 26px;
+      line-height: 45px;
+    }
+    @include m(right) {
+      padding: 0 22px;
+      height: 45px;
+      border: 2px solid #F7C700;
+      font-size: 24px;
+      font-weight: 400;
+      color: #F7C700;
+      line-height: 45px;
+      text-align: center;
+    }
+  }
+  @include e(banner) {
+    z-index: -1;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    @include m(decorate) {
+      width: 100%;
+      height: 79px;
+      position: absolute;
+      bottom: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @include m(buy) {
+      position: absolute;
+      top: 0;
+      .common-container {
+        height: 100%;
+      }
+      .buy-container {
+        width: 217px;
+        top: 60%;
+        left: 420px;
+        position: absolute;
+        transform: translateX(-50%);
+        z-index: 100;
+        &:hover {
+          .platforms {
+            height: 119px;
+            width: max-content;
+          }
+        }
+        cursor: pointer;
+        .buy-img {
+          width: 217px;
+          height: 51px;
+          cursor: pointer;
+          // margin-left: 420px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+        .platforms {
+          display: flex;
+          height: 0;
+          overflow: hidden;
+          width: max-content;
+          transition: height 0.2s linear;/*设置划入导航栏下拉的动画效果*/
+          &.more2{
+            transform: translateX(-25%);
+          }
+          a {
+            display: inline-block;
+            width: 99px;
+            height: 99px;
+            margin: 20px 10px 0;
+            margin-right: 5px;
+            &:nth-child(1) {
+              margin-left: 0;
+            }
+            &:nth-last-child(1) {
+              margin-right: 0;
+            }
+            &:hover {
+              background: rgba(0, 0, 0, 0.5);
+            }
+          }
+        }
+      }
+    }
+  }
+  @include e(about) {
+    display: flex;
+    margin-top: 62px;
+    @include m(left) {
+      flex: 1;
+      .title {
+        width: 541px;
+        height: 92px;
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .content {
+        height: 192px;
+        transition: height 0.3s linear;
+        p{
+          font-size: 24px;
+          color: rgba(92, 92, 92, 1);
+          line-height: 32px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &.height-auto {
+            -webkit-line-clamp: unset;
+          }
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          -webkit-box-orient: vertical;
+          word-break: break-word;
+        }
+      }
+      .show-all {
+        font-size: 24px;
+        color: #F7C700;
+        text-align: right;
+        label{
+          cursor: pointer;
+        }
+      }
+    }
+    @include m(right) {
+      position: relative;
+      margin-left: 65px;
+      width: 551px;
+      height: 311px;
+      // background: #040303;
+      // opacity: 0.25;
+      .video-container {
+        width: 551px;
+        height: 311px;
+        overflow: hidden;
+        &.pc-triangle-box::before {
+          border-right: 40px solid #FFF;
+          border-top: 40px solid transparent;
+        }
+        &.pc-triangle-box::after {
+          border-right: 40px solid transparent;
+          border-top: 40px solid #FFF;
+        }
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        .icon-play {    
+          width: 118px;
+          height: 118px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: scale(0.8);
+          position: absolute;
+          background: url('../../images/pc/sprite-icon.png') no-repeat;
+          background-position: 0 0;
+          margin: -59px 0 0 -59px;
+        }
+      }
+    }
+  }
+
+  @include e(gallery) {
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .swiper-pagination-bullet {
+      width: 100px;
+      border-radius: 0;
+      margin: 0;
+    }
+    @include m(top) {
+      width: 100%;
+      margin: 0 auto;
+      height: 706px;
+      background: #464544;
+    }
+    @include m(topnext) {
+      top: (706 / 2) * 1px;
+      transform: translateY(50%);
+      right: -46px;
+      &::after {
+        width: 48px;
+        height: 78px;
+        content: '';
+        background-image: url(../../images/pc/game/game-arrow.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+    @include m(topprev) {
+      top: (706 / 2) * 1px;
+      transform: translateY(-50%);
+      left: -46px;
+      &::after {
+        width: 48px;
+        height: 78px;
+        content: '';
+        background-image: url(../../images/pc/game/game-arrow.png);
+        background-repeat: no-repeat;
+        transform: rotate(180deg);
+        background-size: contain;
+      }
+    }
+    @include m(thumbs) {
+      width: 100%;
+      padding: 31px 0 65px 0;
+      box-sizing: border-box;
+      position: relative;
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 100%;
+        z-index: 10000;
+      }
+      &::before{
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+        box-shadow: 5px 0px 15px 10px rgba(255, 255, 255, 0.83);
+      }
+      &::after {
+        right: 0;
+        top: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 1));
+        box-shadow: -5px 0px 15px 10px rgba(255, 255, 255, 0.83);
+      }
+      .swiper-slide {
+        width: 328px;
+        height: 188px;
+        margin: 0 17px;
+        img {
+          width: 320px;
+          height: 180px;
+          object-fit: cover;
+        }
+      }
+      .swiper-slide-thumb-active {
+        img {
+          border: 4px solid #F7C700;
+        }
+      }
+      .pc-game_gallery-scrollbar {
+        position: relative;
+        bottom: -34px;
+        width: 710px;
+        height: 12px;
+        background: #C4C4C4;
+        border-radius: 6px;
+        left: 50%;
+        transform: translateX(-50%);
+        .swiper-scrollbar-drag {
+          background: #939393;
+          border-radius: 6px;
+        }
+      }
+    }
+    .swiper-container {
+      width: 100%;
+      height: 200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+  @include e(news) {
+    margin-bottom: 84px;
+    @include m(item) {
+      display: flex;
+      margin-top: 25px;
+      height: 176px;
+      background-color: rgba(241, 241, 241, 1);
+      .img-box {
+        width: 311px;
+        img {
+          width: auto;
+          height: auto;
+        }
+      }
+      .content {
+        flex: 1;
+        padding: 8px 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        .title {
+          font-size: 30px;
+          line-height: 30px;
+          font-weight: bold;
+          color: #201C1E;
+          display: inline-block;
+          white-space: nowrap; 
+          width: 100%; 
+          overflow: hidden;
+          text-overflow:ellipsis;
+        }
+        .date {
+          margin: 19px 0 19px;
+          font-size: 18px;
+          line-height: 18px;
+          font-weight: 400;
+          color: #F7C700;
+        }
+        .desc  {
+          font-size: 20px;
+          font-family: SourceHanSansCN;
+          font-weight: 400;
+          color: #8F8F8F;
+          line-height: 23px;
+          display: -webkit-box;
+          /*设置为弹性盒子*/
+          -webkit-line-clamp: 3;
+          /*最多显示3行*/
+          overflow: hidden;
+          /*超出隐藏*/
+          text-overflow: ellipsis;
+          /*超出显示为省略号*/
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}

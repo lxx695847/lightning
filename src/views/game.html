@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+  </head>
+  <body>
+    <div id="appGame" v-cloak>
+      <div v-if="$isMobile" class="wap-game">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner wap-game_banner">
+            <img :src="detail.banner" alt="">
+            <!-- 只有一个-->
+            <a v-if="detail.payInfo.length === 1" class="buy" :href="detail.payInfo[0].payUrl"  target="_blank">
+              {{langs.buy}}
+            </a>
+            <div v-else-if="detail.payInfo.length > 1" class="buy" @click="wap.showPayInfo = !wap.showPayInfo">
+              {{langs.buy}}
+            </div>
+            <p v-if="detail.payInfo.length > 1" class="platforms" :class="{'is-active': wap.showPayInfo}">
+              <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl"  target="_blank">
+                <img :src="item.thumb" alt="">
+              </a>
+            </p>
+          </div>
+          <div class="wap-game_detail wap-game_container">
+            <div class="wap-game_detail-title">
+              <img v-if="$langPre === 'en'" src="../images/pc-game-title-en.png" alt="">
+              <img v-else src="../images/pc-game-title-zh.png" alt="">
+            </div>
+            <div class="wap-game_detail-video">
+              <video
+                id="videoBox"
+                class="slide-video"
+                :src="detail.videoSrc"
+                :poster="detail.videoPoster"
+                preload="auto"
+                x5-video-player-type="h5" 
+                x5-video-orientation="portrait"
+                x5-video-player-fullscreen="true"
+                x-webkit-airplay="true"
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                playsinline="true">
+              </video>
+              <i class="icon-play" @click="showVideoBox()"></i>
+            </div>
+            <div class="wap-game_detail-content">
+              {{detail.content}}
+            </div>
+          </div>
+          <div v-if="detail.picGroup && detail.picGroup.length > 0" class="wap-game_gallery">
+            <div class="wap-game_title">
+              {{langs.gallery}}
+            </div>
+            <div class="wap-game_gallery-swiper swiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for="(item, index) in detail.picGroup" :key="index">
+                  <img :src="item.src" @click="previewImage(index)" />
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <div class="wap-game_related wap-game_container">
+            <div class="wap-game_title">
+              {{langs.relatedNews}}
+            </div>
+            <a v-for="(item, index) in news" :key="index" :href="item.href" class="wap-game_related-item">
+              <div class="img-box">
+                <img :src="item.thumb" alt="">
+              </div>
+              <div class="intro">
+                <p>{{ item.title }}</p>
+                <p>{{ langs.newsDate }}{{ item.publishTime }}</p>
+              </div>
+            </a>
+          </div>
+          <a class="wap-game_more" :href="relateNewsHref">
+            {{langs.readMore}}
+          </a>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-game">
+        <pc-header></pc-header>
+        <radio-box class="pc-game_banner" :radios="36.458" :style="{backgroundImage: 'url('+ detail.banner +')'}">
+          <p class="pc-game_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <radio-box class="pc-game_banner-buy" :radios="36.458">
+          <div class="common-container">
+            <div class="buy-container">
+              <div v-if="detail.payInfo.length > 1" class="buy-img">
+                <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
+                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
+              </div>
+              <p v-if="detail.payInfo.length > 1" class="platforms" :style="payInfoStyle">
+                <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl">
+                  <img :src="item.thumb" alt="">
+                </a>
+              </p>
+              <!-- 只有一个-->
+              <a v-if="detail.payInfo.length === 1" class="buy-img" :href="detail.payInfo[0].payUrl"  target="_blank">
+                <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
+                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
+              </a>
+            </div>
+          </div>
+        </radio-box>
+        <!-- <div class="common-container pc-game_banner-buy">
+          <div class="buy-container">
+            <div class="buy-img">
+              <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
+              <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
+            </div>
+            <p class="platforms">
+              <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl">
+                <img :src="item.thumb" alt="">
+              </a>
+            </p>
+          </div>
+        </div> -->
+        <div class="pc-game_about common-container">
+          <div class="pc-game_about-left">
+            <div class="title">
+              <img v-if="$langPre==='en'" src="../images/pc-game-title-en.png" srcset="../images/pc-game-title-en@2x.png 2x" alt="">
+              <img v-else src="../images/pc-game-title-zh.png" srcset="../images/pc-game-title-zh@2x.png 2x" alt="">
+            </div>
+            <div class="content" ref="contentBox">
+              <p id="content" ref="contentText">{{detail.content}}</p>
+            </div>
+            <div class="show-all" v-if="pc.moreContent.show">
+              <label v-if="!pc.moreContent.isAll"  @click="showAllContent">[show all]</label>
+              <!-- <label v-else  @click="showAllContent">[close all]</label> -->
+            </div>
+          </div>
+          <div class="pc-game_about-right">
+            <div class="video-container pc-triangle-box">
+              <video
+                id="videoBox"
+                class="slide-video"
+                :src="detail.videoSrc"
+                :poster="detail.videoPoster"
+                preload="auto"
+                x5-video-player-type="h5" 
+                x5-video-orientation="portrait"
+                x5-video-player-fullscreen="true"
+                x-webkit-airplay="true"
+                webkit-playsinline="true"
+                x5-playsinline="true"
+                playsinline="true">
+              </video>
+              <i class="icon-play" @click="showVideoBox"></i>
+            </div>
+          </div>
+        </div>
+        <!-- <div v-show="wap.showVideo" @click="hideVideoBox" class="pc-game_video" ref="videoBox">
+          <div @click.stop="" class="video-container">
+            <video
+              ref="mediaPlay"
+              class="slide-video"
+              :src="detail.videoSrc"
+              controls=""
+              autoplay="autoplay"
+              preload="auto"
+              x5-video-player-type="h5" 
+              x5-video-orientation="portrait"
+              x5-video-player-fullscreen="true"
+              x-webkit-airplay="true"
+              webkit-playsinline="true"
+              x5-playsinline="true"
+              playsinline="true">
+            </video>
+            <i class="icon-play" :style="{'display': video.isPlay ? 'none' : 'block'}" @click="playVideo"></i>
+          </div>
+        </div> -->
+        <div v-if="detail.picGroup && detail.picGroup.length > 0" class="pc-game_gallery common-container mt62">
+          <div class="pc-game_title ">
+            <!-- {{detail.en_title}} -->
+            {{langs.gallery}}
+          </div>
+          <div class="swiper pc-game_gallery-top">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item, index) in detail.picGroup" :key="index" @click="previewImage(index)">
+                <img :src="item.src" />
+              </div>
+            </div>
+          </div>
+          <div class="pc-game_gallery-topnext swiper-button-next"></div>
+          <div class="pc-game_gallery-topprev swiper-button-prev"></div>
+          <div thumbsSlider="" class="swiper pc-game_gallery-thumbs">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide" v-for="(item, index) in detail.picGroup" :key="index">
+                <img :src="item.src" />
+              </div>
+            </div>
+            <div class="pc-game_gallery-scrollbar swiper-scrollbar"></div>
+          </div>
+        </div>
+        <div class="pc-game_news common-container mt62">
+          <p class="pc-game_title">
+            <span class="pc-game_title-left">
+              {{langs.relatedNews}}
+            </span>
+            <a :href="relateNewsHref" class="pc-game_title-right">
+              {{langs.readMore}}
+            </a>
+          </p>
+          <a v-for="(item, index) in news" :key="index" :href="item.href" class="pc-game_news-item  pc-img-scale">
+            <div class="img-box">
+              <img :src="item.thumb" alt="">
+            </div>
+            <div class="content">
+              <p class="title">{{ item.title }}</p>
+              <p class="date">{{ item.publishTime }}</p>
+              <p class="desc">{{ item.intro }}</p>
+            </div>
+          </a>
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+      <div class="preview-game_video" @click="hideVideoBox" v-show="video.visible">
+        <div class="video-container" @click.stop="">
+          <video
+            ref="mediaPlay"
+            class="slide-video"
+            :src="detail.videoSrc"
+            :poster="detail.videoPoster"
+            controls
+            preload="auto"
+            x5-video-player-type="h5" 
+            x5-video-orientation="portrait"
+            x5-video-player-fullscreen="true"
+            x-webkit-airplay="true"
+            webkit-playsinline="true"
+            x5-playsinline="true"
+            playsinline="true">
+          </video>
+          <i class="icon-play" v-show="!video.isPlay && !$isMobile"></i>
+        </div>
+      </div>
+      <div class="preview-game_img" @click="closePreview()" v-show="preview.visible">
+        <img :src="preview.src" alt="">
+      </div>
+    </div>
+  </body>
+</html>

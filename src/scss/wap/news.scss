@@ -1,0 +1,82 @@
+@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+@import "./common.scss";
+@include b(news) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include e(container) {
+    padding: 0 rem(32);
+  }
+  @include e(list) {
+    flex: 1;
+    margin-top: rem(90);
+    @include m(title) {
+      width: rem(233);
+      height: rem(58);
+      margin-bottom: rem(10);
+      display: flex;
+      img {
+        object-fit: contain;
+      }
+    }
+    @include m(item) {
+      margin-bottom: rem(40);
+      display: flex;
+      &:nth-last-child(1) {
+        margin-bottom: rem(70);
+      }
+      .img-box {
+        width: rem(210);
+        height: rem(140);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .intro {
+        padding: rem(13) 0 rem(13) rem(23);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex: 1;
+        p:nth-child(1) {
+          font-size: rem(30);
+          font-family: SourceHanSansCN;
+          font-weight: 500;
+          color: #4D4D4D;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box; 
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; 
+        }
+        p:nth-child(2) {
+          font-size: rem(22);
+          font-family: SourceHanSansCN;
+          font-weight: 400;
+          color: #CFCFCF;
+        }
+      }
+    }
+    @include m(more) {
+      margin: rem(70) auto rem(62);
+      width: rem(320);
+      height: rem(88);
+      font-size: rem(30);
+      font-weight: 400;
+      color: #F7C700;
+      border: rem(2) solid #F7C700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @include m(nomore) {
+      text-align: center;
+      font-size: rem(30);
+      line-height: rem(88);
+      font-weight: 400;
+      color: #F7C700;
+    }
+  }
+} 

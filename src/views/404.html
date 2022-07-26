@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+  </head>
+  <body>
+    <div id="appNotFound">
+      <div v-if="$isMobile" class="wap-404">
+        <wap-header></wap-header>
+        <div class="wap_container">
+          <div class="wap-404_img">
+            <img src="../images/wap-404.png" alt="">
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-404">
+        <pc-header></pc-header>
+        <div class="pc-404_img">
+          <img src="../images/pc-404.png" alt="">
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+    </div>
+  </body>
+</html>

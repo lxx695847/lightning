@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+  </head>
+  <body>
+    <div id="appPolicy" class="leiting" v-cloak>
+      <div v-if="$isMobile" class="wap-policy">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner">
+            <img :src="banner" alt="">
+          </div>
+          <div class="wap-policy_container">
+            <div class="wap-policy_content wap-policy_container">
+              <div class="wap-policy_content-intro"  ref="content" v-html="content"></div>
+            </div>
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-policy">
+        <pc-header></pc-header>
+        <radio-box class="pc-policy_banner" :radios="36.458" :style="{backgroundImage: 'url('+ banner +')'}">
+          <p class="pc-policy_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <div class="pc-policy_about common-container">
+          <div class="content" ref="content" v-html="content"></div>
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+    </div>
+  </body>
+</html>

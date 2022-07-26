@@ -1,0 +1,274 @@
+@import "./common.scss";
+.pc-body-init {
+  // overflow: hidden;
+  &.page2 {
+    overflow-y: overlay!important;
+    @-moz-document url-prefix(){
+      overflow-y: auto!important;
+    }
+  }
+  overflow-y: hidden!important;
+}
+@include b(home) {
+  transition: all 0.5s;
+  // height: 100vh;
+  // overflow: hidden;
+  position: relative;
+  @include e(container) {
+    // width: 1694px;
+    // margin: 0 auto;
+  }
+  @include e(banner) {
+    height: 100vh;
+    width: 100%;
+    // background-image: url(../../images/pc/home/home-banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    @include m(outpost) {
+      position: absolute;
+      top: calc(50% - 70px);
+      left: 50%;
+      height: 22%;
+      transform: translate(-50%, -50%);
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(more) {
+      height: 51px;
+      // text-align: center;
+      // line-height: 50px;
+      position: absolute;
+      top: 62.97%;
+      left: 50%;
+      transform: translateX(-50%);
+      // font-size: 23px;
+      // font-weight: bold;
+      // color: #FFFFFF;
+      // letter-spacing: 2px;
+      display: flex;
+      z-index: 1000;
+      a {
+        width: 216px;
+        margin: 0 10px;
+        // background: #F7C700;
+        display: inline-block;
+        // transform: skewX(-20deg);
+        cursor: pointer;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+        // label {
+        //   display: inline-block;
+        //   transform: skewX(20deg);
+        // }
+      }
+    }
+    @include m(decorate) {
+      width: 100%;
+      height: 79px;
+      position: absolute;
+      bottom: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @include m(jump) {
+      width: 46px;
+      height: 31px;
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  @include e(title) {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    align-items: center;
+    color: #F7C700;
+    @include m(left) {
+      font-weight: bold;
+    }
+    @include m(right) {
+      color: #F7C700;
+      text-align: center;
+      line-height: 45px;
+      width: 161px;
+      height: 45px;
+      border: 2px solid #F7C700;
+    }
+  }
+  @include e(games) {
+    padding-top: 83px;
+    @include m(list) {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+    }
+    @include m(item) {
+      &:not(:nth-child(1)) {
+        margin-left: 15px
+      }
+      &:hover {
+        .title {
+          border-bottom: 3px solid #F7C700;
+        }
+      }
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      span {
+        display: inline-block;
+      }
+      .banner {
+        // width: 100%;
+        // height: 564px;
+        margin-bottom: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .title {
+        font-size: 26px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #000000;
+        border-bottom: 3px solid transparent;
+      }
+    }
+  }
+  @include e(news) {
+    margin-top: 115px;
+    margin-bottom: 115px;
+    @include m(container) {
+      margin-top: 16px;
+      display: flex;
+    }
+    @include m(left) {
+      width: 58.345%;
+      height: 100%;
+      margin-right: 12px;
+      position: relative;
+      display: flex;
+      &:hover {
+        @include boxShadow;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .title {
+        position: absolute;
+        bottom: 0;
+        height: 62px;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        font-size: 24px;
+        font-family: SourceHanSansCN;
+        font-weight: 400;
+        color: #FFFFFF;
+        line-height: 62px;
+        padding: 0 20px;
+        word-break: keep-all;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    @include m(right) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: -6px 0;
+    }
+    @include m(item) {
+      &:hover {
+        @include boxShadow;
+      }
+      display: flex;
+      flex: 1;
+      // flex-direction: column;
+      // height: 168px;
+      margin: 6px 0;
+      .banner {
+        width: 42.698%;
+        height: 100%;
+        display: inline-block;
+        position: relative;
+        .img-box {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          left: 0;
+          top: 0;
+          img {
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+          }
+        }
+        .icon-play {    
+          width: 118px;
+          height: 118px;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: scale(0.5);
+          position: absolute;
+          background: url('../../images/pc/sprite-icon.png') no-repeat;
+          background-position: 0 0;
+          margin: -59px 0 0 -59px;
+        }
+      }
+      .content {
+        padding: 0 20px;
+        flex: 1;
+        cursor: pointer;
+        .title {
+          display: block;
+          font-size: 24px;
+          font-family: SourceHanSansCN;
+          font-weight: 500;
+          color: #4D4D4D;
+          line-height: 27px;
+          min-height: 55px;
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        } 
+        .date {
+          margin-top: 12px;
+          display: block;
+          font-size: 18px;
+          font-family: SourceHanSansCN;
+          font-weight: 400;
+          color: #CFCFCF;
+          line-height: 18px;
+        }
+      }
+    }
+  }
+}

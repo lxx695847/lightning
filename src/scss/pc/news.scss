@@ -1,0 +1,114 @@
+@import "./common.scss";
+@import "../../component/pc/pagination/index.scss";
+@include b(news) {
+  @include e(banner) {
+    z-index: -1;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    @include m(decorate) {
+      width: 100%;
+      height: 79px;
+      position: absolute;
+      bottom: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  
+  @include e(container) {
+    background-image: url('../../images/pc-bg.png');
+    background-size: cover;
+  }
+  @include e(title) {
+    padding-top: 40px;
+    .img-box {
+      img {
+        width: auto;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+  @include e(list) {
+    // margin-top: 83px;
+  }
+  @include e(pagination) {
+    margin-bottom: 115px;
+  }
+  @include e(item) {
+    display: flex;
+    width: 100%;
+    height: 315px;
+    cursor: pointer;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 5px 0px rgba(4, 0, 0, 0.5);
+    &:not(:nth-child(1)) {
+      margin-top: 35px;
+    }
+    @include m(right) {
+      width: 561px;
+      height: 315px;
+      margin-left: 49px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    @include m(left) {
+      flex: 1;
+      position: relative;
+      padding: 34px;
+      .date {
+        position: absolute;
+        top: 18px;
+        left: 0;
+        &::before{
+          margin-right: 10px;
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 30px;
+          background: #F5CB00;
+        }
+        line-height: 30px;
+        font-size: 20px;
+        font-family: SourceHanSansCN;
+        font-weight: 400;
+        color: #F5CB00;
+      }
+      .title {
+        margin-top: 47px;
+        font-size: 36px;
+        line-height: 47px;
+        font-family: Source Han Sans CN;
+        font-weight: bold;
+        color: #000000;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .desc {
+        margin-top: 30px;
+        font-size: 24px;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        color: #8F8F8F;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}
