@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+  </head>
+  <body>
+    <div id="appAbout" class="leiting" v-cloak>
+      <div v-if="$isMobile" class="wap-about">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner">
+            <img :src="banner" alt="">
+          </div>
+          <div class="wap-about_content wap-about_container">
+            <div class="wap-about_content-title">
+              <img v-if="$langPre === 'en'" src="../images/wap-about.png" alt="">
+              <img v-else src="../images/about-zh.png" alt="">
+            </div>
+            <div class="wap-about_content-intro"  ref="content" v-html="content"></div>
+            <div class="wap-about_content-imgs">
+              <span class="img1"><img src="../images/wap/about/about-img1.png" alt=""></span>
+              <span class="img2"><img src="../images/wap/about/about-img2.png" alt=""></span>
+              <span class="img3"><img src="../images/wap/about/about-img3.jpg" alt=""></span>
+              <span class="img4"></span>
+              <span class="img5"></span>
+              <span class="img6"></span>
+              <span class="img7"><img src="../images/wap/about/about-img7.png" alt=""></span>
+              <span class="img8"><img src="../images/wap/about/about-img8.png" alt=""></span>
+              <span class="img9"><img src="../images/wap/about/about-img9.png" alt=""></span>
+              <div class="bg">
+                <img src="../images/wap/about/about-bg.png" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-about">
+        <pc-header></pc-header>
+        <radio-box class="pc-about_banner" :radios="36.458" :style="{backgroundImage: 'url('+ banner +')'}">
+          <p class="pc-about_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <div class="pc-about_about common-container">
+          <div class="title">
+            <img v-if="$langPre==='en'" src="../images/pc-about.png" alt="">
+            <img v-else src="../images/about-zh.png" alt="">
+          </div>
+          <div class="content" ref="content" v-html="content"></div>
+        </div>
+        <div class="pc-about_images common-container">
+          <span class="img1"><img src="../images/wap/about/about-img1.png" alt=""></span>
+          <span class="img2"><img src="../images/wap/about/about-img2.png" alt=""></span>
+          <span class="img3"><img src="../images/wap/about/about-img3.jpg" alt=""></span>
+          <span class="img4"></span>
+          <span class="img5"></span>
+          <span class="img6"></span>
+          <span class="img7"><img src="../images/wap/about/about-img7.png" alt=""></span>
+          <span class="img8"><img src="../images/wap/about/about-img8.png" alt=""></span>
+          <span class="img9"><img src="../images/wap/about/about-img9.png" alt=""></span>
+          <div class="bg">
+            <img src="../images/wap/about/about-bg.png" alt="">
+          </div>
+          <div class="gray-block1"></div>
+          <div class="gray-block2"></div>
+          <div class="gray-block3"></div>
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+    </div>
+  </body>
+</html>

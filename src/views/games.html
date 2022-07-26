@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+  </head>
+  <body>
+    <div id="appGames" class="leiting" v-cloak>
+      <div v-if="$isMobile" class="wap-games">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner">
+            <img :src="banner" alt="">
+          </div>
+          <div class="wap-games_list wap-games_container">
+            <div class="wap-games_list-title">
+              <!-- <img src="../images/wap-games-title.png" alt=""> -->
+              <img v-if="$langPre === 'en'" src="../images/pc-games-title-en.png" alt="">
+              <img v-else src="../images/pc-games-title-zh.png" alt="">
+            </div>
+            <a v-for="(item, index) in gameList"
+              class="wap-games_list-item"
+              :key="index"
+              :href="item.href">
+              <div class="img-box">
+                <img :src="item.thumb" alt="">
+              </div>
+              <div class="intro">
+                <p>{{item.game}}</p>
+                <p>{{item.intro}}</p>
+              </div>
+              <div class="more">
+                {{langs.readMore}}
+              </div>
+            </a>
+          </div>
+          <wap-footer></wap-footer>
+        </div>
+      </div>
+      <div v-else class="pc-games">
+        <pc-header></pc-header>
+        <radio-box class="pc-games_banner" :radios="29.583" :style="{backgroundImage: 'url('+ banner +')'}">
+          <p class="pc-games_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <div class="pc-games_container">
+          <div class="pc-games_title common-container">
+            <div class="img-box">
+              <img v-if="$langPre === 'en'" src="../images/pc-games-title-en.png" alt="">
+              <img v-else src="../images/pc-games-title-zh.png" alt="">
+            </div>
+          </div>
+          <div class="pc-games_list common-container">
+            <!-- :tips="item.game" 
+            v-tooltip -->
+            <a class="pc-games_item pc-img-scale"
+              v-for="(item, index) in gameList"
+              :key="index"
+              :href="item.href">
+              <div class="pc-games_item-left img-box">
+                <img :src="item.thumb" alt="">
+                <span class="intro-box"><label>{{item.intro}}</label></span>
+              </div>
+              <div class="pc-games_item-right">
+                <p class="title">{{item.game}}</p>
+                <p class="date">{{langs.releaseDate}}: {{item.publishTime}}</p>
+                <p class="developer">{{langs.developer}}: {{item.develop}}</p>
+                <p class="keywords">{{langs.keywords}}: {{item.keyword}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <pc-footer />
+      </div>
+    </div>
+  </body>
+</html>

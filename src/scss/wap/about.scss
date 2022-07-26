@@ -1,0 +1,124 @@
+@import "./common.scss";
+@include b(about) {
+  .mb35 {
+    margin-bottom: rem(35);
+  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include e(container) {
+    padding: 0 rem(30);
+  }
+  @include e(content) {
+    flex: 1;
+    margin-top: rem(70);
+    @include m(title) {
+      width: rem(189);
+      height: rem(58);
+      display: flex;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(intro) {
+      margin-top: rem(8);
+      p {
+        margin-bottom: rem(45);
+        font-size: rem(26);
+        font-family: SourceHanSansCN;
+        font-weight: 400;
+        color: #5C5C5C;
+        line-height: rem(40);
+        word-break: break-word;
+      }
+    }
+    @include m(imgs) {
+      position: relative;
+      width: rem(672);
+      height: rem(477);
+      margin-bottom: rem(62);
+      background: #FFFFFF;
+      .bg {
+        position: absolute;
+        top: rem(123);
+        width: 100%;
+        height: rem(186);
+        z-index: 100000;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      span {
+        position: absolute;
+        img {
+          width: 100%;
+          object-fit: contain;
+        }
+      }
+      .img1 {
+        width: rem(59);
+        height: rem(59);
+        background: #F7C700;
+        left: rem(59);
+        top: rem(126);
+      }
+      .img2 {
+        width: rem(208);
+        height: rem(208);
+        left: rem(152);
+        top: rem(63);
+      }
+      .img3 {
+        width: rem(135);
+        height: rem(135);
+        left: rem(59);
+        top: rem(240);
+      }
+      .img4 {
+        width: rem(52);
+        height: rem(52);
+        background-color: #fef5c4;
+        left: rem(381);
+        top: rem(11);
+      }
+      .img5 {
+        width: rem(76);
+        height: rem(76);
+        background: #FF9900;
+        opacity: 0.6;
+        left: rem(340);
+        top: rem(146);
+        z-index: 100;
+      }
+      .img6 {
+        width: rem(37);
+        height: rem(37);
+        background: #FEF5C4;
+        left: rem(267);
+        top: rem(307);
+      }
+      .img7 {
+        width: rem(135);
+        height: rem(135);
+        left: rem(430);
+        top: rem(79);
+      }
+      .img8 {
+        width: rem(226);
+        height: rem(225);
+        left: rem(390);
+        top: rem(167);
+      }
+      .img9 {
+        width: rem(93);
+        height: rem(93);
+        left: rem(323);
+        top: rem(375);
+      }
+    }
+  }
+} 

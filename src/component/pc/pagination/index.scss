@@ -1,0 +1,76 @@
+@include b(pagination) {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: fit-content;
+  margin: 50px auto 0;
+  @include e(prev) {
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    width: 26px;
+    height: 35px;
+    transform: translateY(-50%);
+    img {
+      object-fit: contain;
+    }
+    @include when(disabled) {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+  @include e(next) {
+    transform: translateY(-50%) rotate(180deg);
+    left: unset;
+    right: -30px;
+  }
+  @include e(control) {
+    display: flex;
+    align-items: center;
+    .control {
+      position: relative;
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin: 0 2px;
+      fill: grey;
+      &-active {
+        fill: black;
+        cursor: pointer;
+        transition: fill 0.2s ease-in-out;
+        &:hover {
+          fill: black;
+          transition: fill 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+  .item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 7px;
+    line-height: 35px;
+    height: 35px;
+    margin: 0 10px;
+    color: #836b54;
+    font-size: 15px;
+    cursor: pointer;
+    &:hover {
+      color: #f5cb00;
+    }
+    @include when(active) {
+      color: #f5cb00;
+    }
+  }
+  .dots {
+    cursor: default;
+  }
+}

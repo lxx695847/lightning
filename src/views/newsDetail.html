@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <!-- <script src="../plugins/qrcode.min.js"></script> -->
+    <!-- <title>News - Lightning games</title>
+    <meta name="Description" content="Lighting games is a global PC& console video game publisher, has self-developer team. Lightning games has released video games such as 'Overdungeon', 'The Enchanted Cave 2'" />
+    <meta name="Keywords" content="Lighting games, Overdungeon, The Enchanted Cave 2" /> -->
+  </head>
+  <body>
+    <div id="newsDetailApp" v-cloak>
+      <div v-if="$isMobile" class="wap-newsDetail">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner">
+            <img :src="detail.banner || banner" alt="">
+          </div>
+          <div class="wap-newsDetail_detail wap-newsDetail_container">
+            <p class="title">{{ detail.title }}</p>
+            <p class="desc">{{detail.intro}}</p>
+            <p class="date"> {{detail.publishTime}}</p>
+            <div class="content" v-html="detail.content"></div>
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-newsDetail">
+        <pc-header></pc-header>
+        <radio-box class="pc-newsDetail_banner" :radios="29.583" id="bannerBox" :style="{backgroundImage: 'url(' + detail.banner || banner + ')'}">
+          <p class="pc-newsDetail_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <div class="pc-newsDetail_container">
+          <div class="pc-newsDetail_info common-container">
+            <div class="pc-newsDetail_info-title">
+              {{ detail.title }}
+            </div>
+            <p class="pc-newsDetail_info-desc">
+              {{detail.intro}}
+            </p>
+            <p class="pc-newsDetail_info-date">
+              {{detail.publishTime}}
+            </p>
+            <p class="pc-newsDetail_info-share">
+              <span class="twitter img-box" @click="shareTwitter()">
+                <img src="../images/twitter.png"/>
+              </span>
+              <span class="twitter img-box" @click="shareFacebook()">
+                <img src="../images/facebook.png"/>
+              </span>
+              <span class="twitter img-box" @click="shareWeibo()">
+                <img src="../images/weibo.png"/>
+              </span>
+              <span class="twitter weixin img-box">
+                <img src="../images/weixin.png"/>
+                <label id="qrcode" class="qrcode"></label>
+              </span>
+            </p>
+          </div>
+          <div class="common-container">
+            <div class="pc-newsDetail_content" v-html="detail.content"></div>
+          </div>
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+@import "./common.scss";
+@include b(games) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include e(container) {
+    padding: 0 rem(35);
+  }
+  @include e(list) {
+    flex: 1;
+    margin-top: rem(70);
+    @include m(title) {
+      width: rem(233);
+      height: rem(58);
+      margin-bottom: rem(10);
+      display: flex;
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(item) {
+      display: block;
+      margin-bottom: rem(40);
+      &:nth-child(1) {
+        margin-top: rem(10);
+      }
+      &:nth-last-child(1) {
+        margin-bottom: rem(70);
+      }
+      .img-box {
+        width: 100%;
+        height: rem(343);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .intro {
+        margin: rem(20) 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p:nth-child(1) {
+          font-size: rem(32);
+          font-family: Source Han Sans CN;
+          font-weight: bold;
+          color: #000000;
+          margin-bottom: rem(20);
+          text-align: center;
+        }
+        p:nth-child(2) {
+          font-size: rem(22);
+          font-family: SourceHanSansCN;
+          font-weight: 400;
+          color: #5C5C5C;
+        }
+      }
+      .more {
+        margin: 0 auto;
+        width: rem(320);
+        height: rem(88);
+        border: rem(2) solid #F7C700;
+        font-size: rem(30);
+        font-weight: 400;
+        color: #F7C700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+} 

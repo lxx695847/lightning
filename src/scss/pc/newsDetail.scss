@@ -1,0 +1,120 @@
+@import "./common.scss";
+@include b(newsDetail) {
+  @include e(banner) {
+    z-index: -1;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    @include m(decorate) {
+      width: 100%;
+      height: 79px;
+      position: absolute;
+      bottom: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  @include e(container) {
+    background-image: url('../../images/pc-bg.png');
+    background-size: cover;
+  }
+  @include e(info) {
+    font-family: SourceHanSansCN;
+    font-weight: 400;
+    padding-bottom: 19px;
+    border-bottom: 1px solid #C7C7C7;
+    @include m(title) {
+      margin-top: 40px;
+      font-size: 60px;
+      font-weight: bold;
+      color: #191919;
+    }
+    @include m(desc) {
+      margin-top: 37px;
+      font-size: 30px;
+      color: #8F8F8F;
+    }
+    @include m(date) {
+      margin-top: 10px;
+      font-size: 24px;
+      color: #F5CB00;
+    }
+    @include m(share) {
+      position: absolute;
+      bottom: 14px;
+      right: 0;
+      .img-box {
+        display: inline-block;
+        height: 40px;
+        cursor: pointer;
+        img {
+          height: 100%;
+          object-fit: contain;
+        }
+        margin-left: 42px;
+      }
+      .weixin {
+        position: relative;
+        &:hover{
+          .qrcode{
+            display: block;
+          }
+        }
+        .qrcode {
+          display: none;
+          position: absolute;
+          left: 50%;
+          width: 115px;
+          height: 115px;
+          border: 1px solid #bcbcbc;
+          background: #fff;
+          border-radius: 3px;
+          top: 45px;
+          transform: translateX(-50%);
+          z-index: 1000;
+          padding: 10px;
+          &::before {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background: #fff;
+            border-left: 1px solid #bcbcbc;
+            border-top: 1px solid #bcbcbc;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg) translateX(-50%);
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: -2px;
+          }
+        }
+      }
+    }
+  }
+  
+  @include e(content) {
+    margin-top: 45px;
+    margin-bottom: 115px;
+    p {
+      font-size: 22px;
+      font-family: SourceHanSansCN;
+      font-weight: bold;
+      color: #191919;
+      line-height: 36px; 
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      overflow: hidden;
+      img {
+        width: 100%!important;
+        height: auto;
+        transition: .6s all ease;
+        -webkit-transition: .6s all ease;
+      } 
+    }
+  }
+}

@@ -1,0 +1,219 @@
+@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+@import "./common.scss";
+@include b(game) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  @include e(container) {
+    padding: 0 rem(32);
+  }
+  @include e(banner) {
+    .buy {
+      position: absolute;
+      left: rem(44);
+      top: rem(244);
+      width: rem(320);
+      height: rem(88);
+      text-align: center;
+      line-height: rem(88);
+      background: #F7C700;
+      font-size: rem(30);
+      font-weight: 400;
+      color: #FFFFFF;
+    }
+    .platforms {
+      position: absolute;
+      top: rem(330);
+      display: flex;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.2s ease-out;/*设置划入导航栏下拉的动画效果*/
+      @include when('active') {
+        height: rem(115);
+      }
+      a {
+        display: inline-block;
+        width: rem(99);
+        height: rem(99);
+        margin: rem(20) rem(10) 0;
+        margin-right: rem(5);
+        &:hover {
+          background: rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+  @include e(detail) {
+    flex: 1;
+    @include m(title) {
+      height: rem(58);
+      margin-top: rem(46);
+      margin-bottom: rem(10);
+      display: flex;
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(video) {
+      width: 100%;
+      height: rem(386);
+      position: relative;
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .icon-play {    
+        width: rem(100);
+        height: rem(100);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(0.8);
+        position: absolute;
+        background: url('../../images/wap/game/game-play.png') no-repeat;
+        background-size: contain;
+        transform: translate(-50%, -50%);
+      }
+    }
+    @include m(content) {
+      margin-top: rem(40);
+      font-size: rem(26);
+      font-weight: 400;
+      color: #5C5C5C;
+      line-height:rem(40);
+      word-wrap: break-word;
+    }
+  }
+
+  @include e(gallery) {
+    @include m(title) {
+      margin: 0 auto;
+      margin-bottom: rem(40);
+      width: rem(162);
+      height: rem(27);
+      display: flex;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(swiper) {
+      height: rem(448);
+      position: relative;
+      .swiper-slide {
+        height: rem(422);
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .swiper-pagination {
+        bottom: 0;
+        height: rem(13);
+        display: flex;
+        justify-content: center;
+        .swiper-pagination-bullet {
+          margin: 0 rem(10);
+          width: rem(13);
+          height: rem(13);
+          background: #000000;
+          opacity: 0.6;
+          border-radius: 50%;
+        }
+        .swiper-pagination-bullet-active {
+          background: #F7C700;
+        }
+      }
+    }
+  }
+  @include e(related) {
+    @include m(title) {
+      margin: 0 auto;
+      margin-bottom: rem(40);
+      margin-top: rem(83);
+      width: rem(245);
+      height: rem(30);
+      display: flex;
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    @include m(item) {
+      display: flex;
+      margin-bottom: rem(20);
+      .img-box {
+        width: rem(210);
+        height: rem(140);
+        display: flex;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .intro {
+        padding: rem(15) 0 rem(15) rem(22);
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: space-between;
+        p:nth-child(1) {
+          font-size: rem(30);
+          font-weight: 500;
+          color: #4D4D4D;
+        }
+        p:nth-child(2) {
+          font-size: rem(22);
+          font-weight: 400;
+          color: #CFCFCF;
+        }
+      }
+    }
+  }
+  @include e(title) {
+    font-size: rem(27);
+    font-weight: bold;
+    color: #F7C700;
+    text-align: center;
+    line-height: rem(27);
+    margin-bottom: rem(40);
+    margin-top: rem(70);
+  }
+  @include e(more) {
+    margin: 0 auto;
+    margin-top: rem(70);
+    margin-bottom: rem(62);
+    width: rem(320);
+    height: rem(88);
+    border: rem(2) solid #F7C700;
+    font-size: rem(30);
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    display: flex;
+    color: #F7C700;
+  }
+  @include e(video) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1000000;
+    .video-container {
+      position: relative;
+      display: flex;
+      top: 50%;
+      transform: translateY(-50%);
+      video, img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+} 

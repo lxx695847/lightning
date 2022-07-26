@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>Lightning games</title>
+  </head>
+  <body>
+    <div id="appIndex" v-ready>
+      <div class="wap-home" v-if="$isMobile">
+        <!-- wap -->
+        <wap-header></wap-header>
+        <div class="wap-contaienr wap-home">
+          <div class="wap-home_banner">
+            <img :src="banner.bg" alt="">
+            <div class="wap-home_banner-container">
+              <p class="outpost">
+                <img :src="banner.outpost" alt="">
+              </p>
+              <!-- <p class="readmore">Read More</p> -->
+              <a class="readmore" v-for="(item, index) in banner.btns" :key="index" :href="item.url">
+                <img :src="item.src">
+              </a>
+            </div>
+          </div>
+          <div class="wap-home_games wap-home_container wap-home_box">
+            <p class="wap-home_box-title">
+              <!-- <img src="../images/wap/home/home-games.png" alt=""> -->
+              {{ gamesTitle.content }}
+            </p>
+            <van-row type="flex" gutter="24" class="wap-home_games-list">
+              <van-col v-for="(item, index) in gamesList" :key="index" span="12" class="wap-home_games-item wap-home_box-item">
+                <a :href="item.href">
+                  <div class="img-box">
+                    <img :src="item.src" alt="">
+                  </div>
+                  <div class="title">{{item.title}}</div>
+                </a>
+              </van-col>
+            </van-row>
+            <a class="wap-home_box-more" :href="gamesTitle.url">{{gamesTitle.more}}</a>
+          </div>
+          <div class="wap-home_news wap-home_container  wap-home_box">
+            <p class="wap-home_box-title">
+              <!-- <img src="../images/wap/home/home-games.png" alt=""> -->
+              {{newsTitle.content}}
+            </p>
+            <a class="wap-home_news-first" v-if="newsList.length > 0"  :href="newsList[0].url">
+              <img :src="newsList[0].src" alt="">
+              <div class="title">
+                {{newsList[0].title}}
+              </div>
+            </a>
+            <template v-if="newsList.length > 1">
+              <a class="wap-home_news-item" v-for="(item, index) in newsList.slice(1)" :key="index" :href="item.url">
+                <div class="img-box">
+                  <img :src="item.src" alt="">
+                  <i v-if="item.isVideo" class="icon-play"></i>
+                </div>
+                <div class="info">
+                  <p>{{item.title}}</p>
+                  <p>{{ langs.newsDate }}: {{item.openTime}}</p>
+                </div>
+              </a>
+            </template>
+            <a class="wap-home_box-more wap-home_news-more" :href="newsTitle.url">
+              {{newsTitle.more}}
+            </a>
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-home" ref="bannerBox">
+        <!-- pc -->
+        <pc-header></pc-header>
+        <div class="pc-home_banner" :style="{backgroundImage: 'url(' + banner.bg +')'}">
+          <p class="pc-home_banner-outpost">
+            <img :src="banner.outpost" alt="" />
+          </p>
+          <p class="pc-home_banner-more">
+            <a v-for="(item, index) in banner.btns" :key="index" :href="item.url" target="_blank">
+              <img :src="item.src">
+            </a>
+          </p>
+          <p class="pc-home_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+          <p class="pc-home_banner-jump">
+            <img src="../images/pc/arrow.png" alt="">
+          </p>       
+        </div>
+        <div class="pc-home_games common-container">
+          <p class="pc-home_title pc-home_games-title">
+            <span class="pc-home_title-left">
+              <!-- <img src="../images/home/games.png" alt=""> -->
+              {{ gamesTitle.content }}
+            </span>
+            <a class="pc-home_title-right" :href="gamesTitle.url">
+              <!-- <img :src="gamesTitle.more" alt=""> -->
+              {{ gamesTitle.more }}
+            </a>
+          </p>
+          <div class="pc-home_games-list">
+            <a v-for="(item, index) in gamesList" :key="index" :href="item.href" class="pc-home_games-item pc-img-scale">
+              <radio-box class="banner pc-triangle-box" :radios="139.95">
+                <img :src="item.src" alt="">
+              </radio-box>
+              <span class="title">
+                {{ item.title }}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="pc-home_news common-container">
+          <p class="pc-home_title pc-home_game-title">
+            <span class="pc-home_title-left">
+              <!-- <img src="../images/home/news.png" alt=""> -->
+              {{ newsTitle.content }}
+            </span>
+            <a class="pc-home_title-right" :href="newsTitle.url">
+              <!-- <img src="../images/home/more.png" alt=""> -->
+              {{ newsTitle.more }}
+            </a>
+          </p>
+          <div class="pc-home_news-container">
+            <template v-if="newsList.length > 0">
+              <a :href="newsList[0].url"  class="pc-home_news-left">
+                <radio-box class="banner" :radios="56.615">
+                  <img :src="newsList[0].src" alt="">
+                </radio-box>
+                <span class="title">
+                  {{newsList[0].title}}
+                </span>
+              </a>
+            </template>
+            <div class="pc-home_news-right">
+              <template v-if="newsList.length > 3"></template>
+              <a v-for="(item, index) in newsList.slice(1, 4)" :href="item.url" class="pc-home_news-item">
+                <span class="banner">
+                  <span class="img-box">
+                    <img :src="item.src" alt="">
+                    <i v-if="item.isVideo" class="icon-play"></i>
+                  </span>
+                </span>
+                <span class="content">
+                  <label class="title">
+                    {{item.title}}
+                  </label>
+                  <label class="date">
+                    Date Published:{{item.openTime}}
+                  </label>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <pc-footer />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 13.33vw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>News - Lightning games</title>
+    <meta name="Description" content="Lighting games is a global PC& console video game publisher, has self-developer team. Lightning games has released video games such as 'Overdungeon', 'The Enchanted Cave 2'" />
+    <meta name="Keywords" content="Lighting games, Overdungeon, The Enchanted Cave 2" />
+  </head>
+  <body>
+    <div id="appNews" v-cloak>
+      <div v-if="$isMobile" class="wap-news">
+        <wap-header></wap-header>
+        <div class="wap-container">
+          <div class="wap-banner">
+            <img src="../images/wap-banner.jpg" alt="">
+          </div>
+          <div class="wap-news_list wap-news_container">
+            <div class="wap-news_list-title">
+              <!-- <img src="../images/wap-news-title.png" alt=""> -->
+              <img v-if="$langPre === 'en'" src="../images/pc-news-title-en.png" alt="">
+              <img v-else src="../images/pc-news-title-zh.png" alt="">
+            </div>
+            <a class="wap-news_list-item" v-for="(item, index) in page.data" :key="index" :href="item.href">
+              <div class="img-box">
+                <img :src="item.thumb" alt="">
+              </div>
+              <div class="intro">
+                <p>{{item.title}}</p>
+                <p>{{langs.newsDate}}{{item.publishTime}}</p>
+              </div>
+            </a>
+            <div class="wap-news_list-more" v-if="page.total > page.data.length" @click="loadMore">
+              {{langs.more}}
+            </div>
+            <div class="wap-news_list-nomore" v-else>
+              <span v-if="!page.loading">{{langs.nomore}}</span>
+              <span v-if="page.loading">{{langs.loading}}</span>
+            </div>
+          </div>
+        </div>
+        <wap-footer></wap-footer>
+      </div>
+      <div v-else class="pc-news">
+        <pc-header></pc-header>
+        <radio-box class="pc-news_banner" :radios="29.583" id="bannerBox" :style="{backgroundImage: 'url('+ banner +')'}">
+          <p class="pc-news_banner-decorate">
+            <img src="../images/pc-banner-decorate.png" alt="">
+          </p>
+        </radio-box>
+        <div class="pc-news_container">
+          <div class="pc-news_title common-container">
+            <div class="img-box">
+              <img v-if="$langPre === 'en'" src="../images/pc-news-title-en.png" alt="">
+              <img v-else src="../images/pc-news-title-zh.png" alt="">
+            </div>
+          </div>
+          <div class="pc-news_list common-container" id="newsList">
+            <a class="pc-news_item pc-img-scale"
+              v-for="(item, index) in page.data"
+              :key="index"
+              :href="item.href" target="_blank">
+              <div class="pc-news_item-left">
+                <p class="date">{{item.publishTime}}</p>
+                <p class="title">{{item.title}}</p>
+                <p class="desc">{{item.intro}}</p>
+              </div>
+              <div class="pc-news_item-right img-box">
+                <img :src="item.thumb" alt="">
+              </div>
+            </a>
+          </div>
+          <div class="pc-news_pagination common-container" v-if="page.total > 0">
+            <pc-pagination
+              :loading="page.loading"
+              :pages="Math.floor(page.total / page.pageSize) + (page.total % page.pageSize !== 0 ? 1 : 0)"
+              @update:model:value="loadData"
+            />
+            <!-- <test-box /> -->
+          </div>
+        </div>
+        <pc-footer></pc-footer>
+      </div>
+    </div>
+  </body>
+</html>
