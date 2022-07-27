@@ -173,10 +173,6 @@ const app = new Vue({
                 thumb: this.$imgBase + pay.thumb
               }
             })
-            detail.payInfo = [
-              ...detail.payInfo,
-              ...detail.payInfo
-            ]
             detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
             this.findVideoCover()
             this.$nextTick(() => {
