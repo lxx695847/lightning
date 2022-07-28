@@ -2,9 +2,9 @@
 import Vue from 'vue'
 import Swiper from 'swiper'
 import { hasMobile } from '@/utils/index.js'
-import { getQueryVariable, viewMixin } from './common.js'
+import { getQueryVariable, viewMixin, findVideoCover } from './common.js'
 import instance from "./http.js"
-import { allDate, allMonth } from '@/utils/dateUtil'
+import { formatDate } from '@/utils/dateUtil'
 const isDev = process.env.NODE_ENV === "development";
 const deviceName = hasMobile() ? 'wap' : 'pc'
 if (isDev) {
@@ -174,7 +174,7 @@ const app = new Vue({
               }
             })
             detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
-            this.findVideoCover()
+            this.detail.videoPoster = findVideoCover.call(this, document.getElementById('videoBox'), 160)
             this.$nextTick(() => {
               this.initDomEvent()
             })
@@ -195,7 +195,7 @@ const app = new Vue({
               id: item.id,
               href: `${this.$linkPre}/newsDetail.html?id=${item.id}`,
               title: item[`${this.$langPre}_title`],
-              publishTime: this.cumputeDate(item.publish_time),
+              publishTime: formatDate(item.publish_time * 1000),
               intro: item[`${this.$langPre}_intro`]
             }
           })
@@ -212,26 +212,7 @@ const app = new Vue({
       document.body.parentNode.style.overflow = 'auto'
       this.preview.visible = false
     },
-    // 获取第一帧图片
-    findVideoCover() {
-      let size = 160
-      // 获取video节点
-      const video = document.getElementById('videoBox');
-      video.width = size
-      video.height = size
-      video.currentTime = 1 // 第一帧
-      //创建canvas对象
-      const canvas = document.createElement("canvas")
-      canvas.width = size
-      canvas.height = size
-      this.$nextTick(()=>{
-        // 利用canvas对象方法绘图
-        canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
-        // 转换成base64形式
-        const img = canvas.toDataURL("image/jpeg") // 这个就是图片的base64
-        this.detail.videoPoster = img
-      })
-    },
+   
     // 显示视频播放框
     showVideoBox() {
       var videoElement = this.$refs.mediaPlay;
@@ -252,15 +233,17 @@ const app = new Vue({
       var videoElement = this.$refs.mediaPlay;
       videoElement.paused === true ? videoElement.play() : videoElement.pause();
     },
-    cumputeDate(time) {
-      if (!time) return
-      const dateTime = new Date(time * 1000)
-      console.log(dateTime)
-      const day = allDate[dateTime.getDay()].slice(0, 3)
-      const month = allMonth[dateTime.getMonth()].slice(0, 3)
-      const date = dateTime.getDate()
-      return `${day}, ${month} ${date}`
-    },
+    // cumputeDate(time) {
+    //   if (!time) return
+    //   const dateTime = new Date(time * 1000)
+    //   const day = allDate[dateTime.getDay()].slice(0, 3)
+    //   const month = allMonth[dateTime.getMonth()].slice(0, 3)
+    //   const date = dateTime.getDate()
+    //   if (this.$langPre === 'en') {
+    //     return `${day}, ${month} ${date}`
+    //   }
+    //   return `${month}月${date}日`
+    // },
     initMeta() {
       const title = {
         zh: `全部游戏 - Lightning games`,

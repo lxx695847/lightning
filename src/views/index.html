@@ -16,7 +16,10 @@
         <wap-header></wap-header>
         <div class="wap-contaienr wap-home">
           <div class="wap-home_banner">
-            <img :src="banner.bg" alt="">
+            <img v-if="!banner.isVideo" :src="banner.bg" alt="">
+            <video v-else autoplay="autoplay" loop muted='muted' >
+              <source :src="banner.bg" type="video/mp4"/>
+            </video>
             <div class="wap-home_banner-container">
               <p class="outpost">
                 <img :src="banner.outpost" alt="">
@@ -77,7 +80,11 @@
       <div v-else class="pc-home" ref="bannerBox">
         <!-- pc -->
         <pc-header></pc-header>
-        <div class="pc-home_banner" :style="{backgroundImage: 'url(' + banner.bg +')'}">
+        <div class="pc-home_banner">
+          <img v-if="!banner.isVideo" :src="banner.bg" alt="">
+          <video v-else autoplay="autoplay" loop muted='muted' >
+            <source :src="banner.bg" type="video/mp4"/>
+          </video>
           <p class="pc-home_banner-outpost">
             <img :src="banner.outpost" alt="" />
           </p>
@@ -131,6 +138,7 @@
               <a :href="newsList[0].url"  class="pc-home_news-left">
                 <radio-box class="banner" :radios="56.615">
                   <img :src="newsList[0].src" alt="">
+                  <i v-if="newsList[0].isVideo" class="icon-play"></i>
                 </radio-box>
                 <span class="title">
                   {{newsList[0].title}}
@@ -151,7 +159,7 @@
                     {{item.title}}
                   </label>
                   <label class="date">
-                    Date Published:{{item.openTime}}
+                    {{langs.publishTime}}: {{item.openTime}}
                   </label>
                 </span>
               </a>

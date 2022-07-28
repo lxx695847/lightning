@@ -10,7 +10,7 @@ if (isDev) {
 import Vue from 'vue';
 import {viewMixin} from './common.js'
 import instance from "./http.js"
-import { allMonth } from '@/utils/dateUtil'
+import { allMonth, formatDate } from '@/utils/dateUtil'
 const homeAPI = {
   banner: '/firstBanner',
   recommend: '/firstRecommend'
@@ -22,6 +22,7 @@ new Vue({
   data() {
     return {
       banner: {
+        isVideo: false,
         bg: '',
         btns: [],
         outpost: ''
@@ -45,6 +46,7 @@ new Vue({
       if (res.code === 200) {
         const resData = res.data[0]
         const { banner } = this
+        banner.isVideo = resData[this.$langPre+'_type'] === 2
         banner.bg = `${imgBase}${resData[this.$langPre+'_src']}`
         banner.outpost = `${imgBase}/${resData[this.$langPre+'_extra_img']}`
         banner.btns = resData[`${this.$langPre}_btn`].map(item => {
@@ -135,7 +137,12 @@ new Vue({
     cumputeDate(time) {
       if (!time) return
       const publishDate = new Date(time * 1000)
-      return `${allMonth[publishDate.getMonth()]} ${publishDate.getDate()}`
+      const month = publishDate.getMonth() + 1
+      const date = publishDate.getDate()
+      if (this.$langPre === 'en') {
+        return `${allMonth[month - 1]} ${date}`
+      }
+      return `${month}月${date}日`
     }
   }
 })

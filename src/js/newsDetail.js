@@ -4,8 +4,7 @@ import { getQueryVariable, viewMixin } from './common.js'
 import instance from "./http.js"
 import QRCode from 'qrcodejs2'
 import { hasMobile } from '@/utils/index.js'
-import { allMonth } from '@/utils/dateUtil'
-console.log('===========:', QRCode)
+import { formatDate } from '@/utils/dateUtil'
 const isDev = process.env.NODE_ENV === "development";
 const deviceName = hasMobile() ? 'wap' : 'pc'
 if (isDev) {
@@ -66,7 +65,7 @@ new Vue({
           const { detail } = this
           detail.title = resData[`${this.$langPre}_title`]
           detail.intro = resData[`${this.$langPre}_intro`]
-          detail.publishTime = this.cumputeDate(resData.publish_time),
+          detail.publishTime = formatDate(resData.publish_time * 1000),
           detail.content = resData[`${this.$langPre}_detail`]
           detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
           this.initMeta()
@@ -130,16 +129,6 @@ new Vue({
       let metaParams = metaArr.toString()
       var targetUrl = `${facebookHost}?u=${path}?meta=${metaParams}`
       window.open(targetUrl, 'facebook', this.shareWindow);  
-    },
-    cumputeDate(time) {
-      if (!time) return
-      const date = new Date(time * 1000)
-      const year = date.getFullYear()
-      const month = allMonth[date.getMonth()].slice(0, 3)
-      const hours = date.getHours()
-      const minutes = date.getMinutes()
-      const apm = hours > 12 ? 'pm' : 'am'
-      return `${date.getDate()} ${month} ${year} ${hours - 12}:${minutes > 9 ? minutes : '0' + minutes} ${apm}`
     },
     initMeta() {
       const title = {

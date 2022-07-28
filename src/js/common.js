@@ -8,6 +8,7 @@ import wapHeader from '@/component/wap/header.js'
 import PcFooter from '@/component/pc/footer.js'
 import PCHeader from '@/component/pc/header.js'
 import { hasMobile } from '@/utils/index.js'
+import '@/utils/dateUtil'
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 Vue.use(Popover)
@@ -67,9 +68,28 @@ export const getQueryVariable = (variable) => {
   return ''
 }
 
+// 获取第一帧图片
+export function findVideoCover (video, width, height) {
+  // 获取video节点
+  video.currentTime = 1 // 第一帧
+  //创建canvas对象
+  const canvas = document.createElement("canvas")
+  canvas.width = width
+  canvas.height = height
+  this.$nextTick(()=>{
+    // 利用canvas对象方法绘图
+    canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
+    // 转换成base64形式
+    const img = canvas.toDataURL("image/jpeg") // 这个就是图片的base64
+    return img
+  })
+}
+
 Vue.directive("ready", {
   // 当被绑定的元素插入到 DOM 中时……
-  inserted: function (el) {
+  bind (el, binding, vnode) {
+    console.log(el)
+    el.style.display = 'none'
     // 聚焦元素
     var div = document.createElement('div');
 		div.innerHTML = `
@@ -77,6 +97,7 @@ Vue.directive("ready", {
     `; //设置显示的数据，可以是标签．
 		div.className = "page-loading";//设置div的属性，如：class，title，id 等等
 		var body = document.body; //获取body对象.
+    // body.scrollTop = 0
 		//动态插入到body中
 		body.insertBefore(div, body.firstChild);
     let isComplete = false
@@ -84,6 +105,7 @@ Vue.directive("ready", {
     setTimeout(() => {
       if (isComplete) {
         div.className = 'hide-page-loading'
+        el.style.display = 'block'
       }
       timeOut = true
     }, 1000)
@@ -93,6 +115,7 @@ Vue.directive("ready", {
         isComplete = true
         if (timeOut) {
           div.className = 'hide-page-loading'
+          el.style.display = 'block'
         }
       }
     };
@@ -107,13 +130,17 @@ export const viewMixin = {
         newsDate: '发布日期：',
         more: '加载更多',
         nomore: '- 已全部加载 -',
-        readMore: '查看更多'
+        readMore: '查看更多',
+        publishTime: '发布日期',
+        noPublish: '未发布'
       },
       enLang: {
         newsDate: 'Date Published : ',
         more: 'Read More',
         nomore: '- THE END -',
-        readMore: 'Read More'
+        readMore: 'Read More',
+        publishTime: 'Date Published',
+        noPublish: 'No Publish'
       }
     }
   },

@@ -3,7 +3,7 @@ import Vue from 'vue';
 import { viewMixin } from './common.js'
 import instance from "./http.js"
 import { hasMobile } from '@/utils/index.js'
-import { cumputeDate } from '@/utils/dateUtil'
+import { formatDate } from '@/utils/dateUtil'
 const isDev = process.env.NODE_ENV === "development";
 const deviceName = hasMobile() ? 'wap' : 'pc'
 if (isDev) {
@@ -42,7 +42,7 @@ const app = new Vue({
           href: `/${this.$langPre}/game.html?id=${item.id}`,
           thumb: this.$imgBase + item[`${this.$langPre}_thumb`],
           game: item[`${this.$langPre}_game`],
-          publishTime: cumputeDate(item[`${this.$langPre}_publish_time`] * 1000),
+          publishTime: formatDate(item[`${this.$langPre}_publish_time`] * 1000, { hasHour: false}),
           develop: item[`${this.$langPre}_develop`],
           keyword: item[`${this.$langPre}_keyword`],
           intro: item[`${this.$langPre}_intro`]

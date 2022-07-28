@@ -44,24 +44,24 @@
             <p class="pc-newsDetail_info-desc">
               {{detail.intro}}
             </p>
-            <p class="pc-newsDetail_info-date">
-              {{detail.publishTime}}
-            </p>
-            <p class="pc-newsDetail_info-share">
-              <span class="twitter img-box" @click="shareTwitter()">
-                <img src="../images/twitter.png"/>
-              </span>
-              <span class="twitter img-box" @click="shareFacebook()">
-                <img src="../images/facebook.png"/>
-              </span>
-              <span class="twitter img-box" @click="shareWeibo()">
-                <img src="../images/weibo.png"/>
-              </span>
-              <span class="twitter weixin img-box">
-                <img src="../images/weixin.png"/>
-                <label id="qrcode" class="qrcode"></label>
-              </span>
-            </p>
+            <div class="pc-newsDetail_info-date">
+              <div class="date">{{detail.publishTime}}</div>
+              <div class="share">
+                <span class="twitter img-box" @click="shareTwitter()">
+                  <img src="../images/twitter.png"/>
+                </span>
+                <span class="twitter img-box" @click="shareFacebook()">
+                  <img src="../images/facebook.png"/>
+                </span>
+                <span class="twitter img-box" @click="shareWeibo()">
+                  <img src="../images/weibo.png"/>
+                </span>
+                <span class="twitter weixin img-box">
+                  <img src="../images/weixin.png"/>
+                  <label id="qrcode" class="qrcode"></label>
+                </span>
+              </div>
+            </div>
           </div>
           <div class="common-container">
             <div class="pc-newsDetail_content" v-html="detail.content"></div>

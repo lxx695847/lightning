@@ -3,7 +3,7 @@ import Vue from 'vue';
 import { viewMixin } from './common.js'
 import instance from "./http.js"
 import { hasMobile } from '@/utils/index.js'
-import { allMonth } from '@/utils/dateUtil'
+import { formatDate } from '@/utils/dateUtil'
 import PCPagination from '@/component/pc/pagination'
 const isDev = process.env.NODE_ENV === "development";
 const deviceName = hasMobile() ? 'wap' : 'pc'
@@ -63,7 +63,7 @@ const app = new Vue({
           return {
             id: item.id,
             href: `/${this.$langPre}/newsDetail.html?id=${item.id}`,
-            publishTime: this.cumputeDate(item.publish_time * 1000),
+            publishTime: item.publish_time ? formatDate(item.publish_time * 1000) : this.langs.noPublish,
             thumb: this.$imgBase + item[`${this.$langPre}_thumb`],
             title: item[`${this.$langPre}_title`],
             intro: item[`${this.$langPre}_intro`]
@@ -81,16 +81,6 @@ const app = new Vue({
     loadMore() {
       this.page.currentPage += 1
       this.loadData()
-    },
-    cumputeDate(time) {
-      if (!time) return
-      const date = new Date(time)
-      const year = date.getFullYear()
-      const month = allMonth[date.getMonth()].slice(0, 3)
-      const hours = date.getHours()
-      const minutes = date.getMinutes()
-      const apm = hours > 12 ? 'pm' : 'am'
-      return `${date.getDate()} ${month} ${year} ${hours - 12}:${minutes > 9 ? minutes : '0' + minutes} ${apm}`
     },
     initMeta() {
       const title = {

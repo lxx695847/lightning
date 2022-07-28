@@ -42,59 +42,62 @@
       margin-top: 10px;
       font-size: 24px;
       color: #F5CB00;
-    }
-    @include m(share) {
-      position: absolute;
-      bottom: 14px;
-      right: 0;
-      .img-box {
-        display: inline-block;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 40px;
+      .share {
         height: 40px;
-        cursor: pointer;
-        img {
-          height: 100%;
-          object-fit: contain;
-        }
-        margin-left: 42px;
-      }
-      .weixin {
-        position: relative;
-        &:hover{
-          .qrcode{
-            display: block;
+        .img-box {
+          display: inline-block;
+          height: 40px;
+          cursor: pointer;
+          img {
+            height: 100%;
+            object-fit: contain;
           }
+          margin-left: 42px;
         }
-        .qrcode {
-          display: none;
-          position: absolute;
-          left: 50%;
-          width: 115px;
-          height: 115px;
-          border: 1px solid #bcbcbc;
-          background: #fff;
-          border-radius: 3px;
-          top: 45px;
-          transform: translateX(-50%);
-          z-index: 1000;
-          padding: 10px;
-          &::before {
-            content: "";
-            width: 5px;
-            height: 5px;
-            background: #fff;
-            border-left: 1px solid #bcbcbc;
-            border-top: 1px solid #bcbcbc;
-            -webkit-transform: rotate(45deg);
-            -ms-transform: rotate(45deg);
-            transform: rotate(45deg) translateX(-50%);
-            display: block;
+        .weixin {
+          position: relative;
+          &:hover{
+            .qrcode{
+              display: block;
+            }
+          }
+          .qrcode {
+            display: none;
             position: absolute;
             left: 50%;
-            top: -2px;
+            width: 115px;
+            height: 115px;
+            border: 1px solid #bcbcbc;
+            background: #fff;
+            border-radius: 3px;
+            top: 45px;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 10px;
+            &::before {
+              content: "";
+              width: 5px;
+              height: 5px;
+              background: #fff;
+              border-left: 1px solid #bcbcbc;
+              border-top: 1px solid #bcbcbc;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg) translateX(-50%);
+              display: block;
+              position: absolute;
+              left: 50%;
+              top: -2px;
+            }
           }
         }
       }
     }
+    
   }
   
   @include e(content) {

@@ -11,7 +11,8 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    img {
+    margin-top: rem(88);
+    img, video {
       width: 100%;
       height: 100%;
       object-fit: cover;
