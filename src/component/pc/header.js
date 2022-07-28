@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import instance from "@/js/http.js"
+import eventBus from '@/utils/EventBus.js'
 // 订阅我们的新闻
 // 提交你的邮箱来跟进我们后续的更新和新闻，我们保证绝对不会向你发送垃圾邮件
 // 订阅
 export default Vue.extend({
   template:`
-    <div class="pc-header">
+    <div class="pc-header" ref="header">
       <div class="pc-header_container common-container">
         <a class="pc-header_logo" :href="$linkPre"></a>
         <div class="pc-header_navs-box">
@@ -72,6 +73,16 @@ export default Vue.extend({
           })
         }
       })
+      this.computeHeight()
+    }
+  },
+  mounted() {
+    eventBus.$on('showCallback', () => {
+      this.computeHeight()
+    })
+  },
+  methods: {
+    computeHeight() {
       this.$nextTick(() => {
         this.header.navs.forEach((item, index) => {
           if (item.sub && item.sub.length > 0) {

@@ -68,7 +68,7 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
-          <div class="wap-game_related wap-game_container">
+          <div v-if="news.length > 0" class="wap-game_related wap-game_container">
             <div class="wap-game_title">
               {{langs.relatedNews}}
             </div>
@@ -102,7 +102,7 @@
                 <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
                 <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
               </div>
-              <p v-if="detail.payInfo.length > 1" class="platforms" :style="payInfoStyle">
+              <p v-if="detail.payInfo.length > 1" class="platforms">
                 <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl">
                   <img :src="item.thumb" alt="">
                 </a>
@@ -205,7 +205,7 @@
             <div class="pc-game_gallery-scrollbar swiper-scrollbar"></div>
           </div>
         </div>
-        <div class="pc-game_news common-container mt62">
+        <div v-if="news.length > 0" class="pc-game_news common-container mt62">
           <p class="pc-game_title">
             <span class="pc-game_title-left">
               {{langs.relatedNews}}

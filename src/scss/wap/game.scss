@@ -24,6 +24,7 @@
     .platforms {
       position: absolute;
       top: rem(330);
+      left: rem(44);
       display: flex;
       height: 0;
       overflow: hidden;
@@ -35,7 +36,7 @@
         display: inline-block;
         width: rem(99);
         height: rem(99);
-        margin: rem(20) rem(10) 0;
+        margin: rem(20) rem(5) 0 0;
         margin-right: rem(5);
         &:hover {
           background: rgba(0, 0, 0, 0.5);

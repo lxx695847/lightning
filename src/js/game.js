@@ -71,14 +71,14 @@ const app = new Vue({
   created() {
     this.loadData()
   },
-  computed: {
-    payInfoStyle() {
-      const count = this.detail.payInfo.length
-      return {
-        transform: `translateX(-${(count*99 + (count - 1) * 15 - 217) / 2}px)`
-      }
-    }
-  },
+  // computed: {
+  //   payInfoStyle() {
+  //     const count = this.detail.payInfo.length
+  //     return {
+  //       transform: `translateX(-${(count*99 + (count - 1) * 15 - 217) / 2}px)`
+  //     }
+  //   }
+  // },
   methods: {
     initDomEvent() {
       if (this.$isMobile) {
@@ -173,6 +173,11 @@ const app = new Vue({
                 thumb: this.$imgBase + pay.thumb
               }
             })
+            detail.payInfo = [
+              ...detail.payInfo,
+              ...detail.payInfo,
+              ...detail.payInfo
+            ]
             detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
             this.detail.videoPoster = findVideoCover.call(this, document.getElementById('videoBox'), 160)
             this.$nextTick(() => {

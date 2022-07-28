@@ -116,10 +116,23 @@
       position: relative;
       width: 100%;
       height: rem(386);
+      display: block;
       img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      .icon-play {    
+        width: rem(60);
+        height: rem(60);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(0.8);
+        position: absolute;
+        background: url('../../images/wap/game/game-play.png') no-repeat;
+        background-size: contain;
+        transform: translate(-50%, -50%);
       }
       .title {
         position: absolute;

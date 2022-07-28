@@ -107,10 +107,10 @@
       }
       .buy-container {
         width: 217px;
-        top: 60%;
-        left: 420px;
+        top: calc(100% - 230px);
+        left: 120px;
         position: absolute;
-        transform: translateX(-50%);
+        // transform: translateX(-50%);
         z-index: 100;
         &:hover {
           .platforms {

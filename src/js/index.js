@@ -48,7 +48,8 @@ new Vue({
         const { banner } = this
         banner.isVideo = resData[this.$langPre+'_type'] === 2
         banner.bg = `${imgBase}${resData[this.$langPre+'_src']}`
-        banner.outpost = `${imgBase}/${resData[this.$langPre+'_extra_img']}`
+        const outpost = resData[this.$langPre+'_extra_img']
+        banner.outpost = outpost ? `${imgBase}/${outpost}` : ''
         banner.btns = resData[`${this.$langPre}_btn`].map(item => {
           return {
             src: imgBase + item.btn_src,
@@ -143,6 +144,11 @@ new Vue({
         return `${allMonth[month - 1]} ${date}`
       }
       return `${month}月${date}日`
+    },
+    showCallback() {
+      if (this.$refs.header.showCallback) {
+        this.$refs.header.showCallback()
+      }
     }
   }
 })

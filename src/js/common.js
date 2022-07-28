@@ -8,6 +8,7 @@ import wapHeader from '@/component/wap/header.js'
 import PcFooter from '@/component/pc/footer.js'
 import PCHeader from '@/component/pc/header.js'
 import { hasMobile } from '@/utils/index.js'
+import eventBus from '@/utils/EventBus.js'
 import '@/utils/dateUtil'
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
@@ -88,7 +89,7 @@ export function findVideoCover (video, width, height) {
 Vue.directive("ready", {
   // 当被绑定的元素插入到 DOM 中时……
   bind (el, binding, vnode) {
-    console.log(el)
+    console.log(vnode)
     el.style.display = 'none'
     // 聚焦元素
     var div = document.createElement('div');
@@ -106,6 +107,8 @@ Vue.directive("ready", {
       if (isComplete) {
         div.className = 'hide-page-loading'
         el.style.display = 'block'
+        el.scrollTop = 0
+        eventBus.$emit('showCallback')
       }
       timeOut = true
     }, 1000)
@@ -116,6 +119,8 @@ Vue.directive("ready", {
         if (timeOut) {
           div.className = 'hide-page-loading'
           el.style.display = 'block'
+          el.scrollTop = 0
+          eventBus.$emit('showCallback')
         }
       }
     };
@@ -132,7 +137,7 @@ export const viewMixin = {
         nomore: '- 已全部加载 -',
         readMore: '查看更多',
         publishTime: '发布日期',
-        noPublish: '未发布'
+        noPublish: '敬请期待'
       },
       enLang: {
         newsDate: 'Date Published : ',
@@ -140,7 +145,7 @@ export const viewMixin = {
         nomore: '- THE END -',
         readMore: 'Read More',
         publishTime: 'Date Published',
-        noPublish: 'No Publish'
+        noPublish: 'Coming Soon'
       }
     }
   },

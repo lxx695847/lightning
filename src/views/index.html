@@ -21,7 +21,7 @@
               <source :src="banner.bg" type="video/mp4"/>
             </video>
             <div class="wap-home_banner-container">
-              <p class="outpost">
+              <p v-if="banner.outpost" class="outpost">
                 <img :src="banner.outpost" alt="">
               </p>
               <!-- <p class="readmore">Read More</p> -->
@@ -54,6 +54,7 @@
             </p>
             <a class="wap-home_news-first" v-if="newsList.length > 0"  :href="newsList[0].url">
               <img :src="newsList[0].src" alt="">
+              <i v-if="newsList[0].isVideo" class="icon-play"></i>
               <div class="title">
                 {{newsList[0].title}}
               </div>
@@ -79,13 +80,13 @@
       </div>
       <div v-else class="pc-home" ref="bannerBox">
         <!-- pc -->
-        <pc-header></pc-header>
+        <pc-header ref="header"></pc-header>
         <div class="pc-home_banner">
           <img v-if="!banner.isVideo" :src="banner.bg" alt="">
           <video v-else autoplay="autoplay" loop muted='muted' >
             <source :src="banner.bg" type="video/mp4"/>
           </video>
-          <p class="pc-home_banner-outpost">
+          <p v-if="banner.outpost" class="pc-home_banner-outpost">
             <img :src="banner.outpost" alt="" />
           </p>
           <p class="pc-home_banner-more">
