@@ -45,7 +45,7 @@ const app = new Vue({
           publishTime: formatDate(item[`${this.$langPre}_publish_time`] * 1000, { hasHour: false}),
           develop: item[`${this.$langPre}_develop`],
           keyword: item[`${this.$langPre}_keyword`],
-          intro: item[`${this.$langPre}_intro`]
+          intro: item[`${this.$langPre}_tips`]
         }
       })
     }

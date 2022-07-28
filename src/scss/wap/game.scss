@@ -130,6 +130,23 @@
       }
     }
   }
+  @include e(detail) {
+    margin-top: rem(68);
+    * {
+      word-break: break-all;
+    }
+    p {
+      font-size: rem(26);
+      font-weight: 400;
+      color: #5C5C5C;
+      line-height: rem(40);
+      margin-bottom: rem(20);
+      img {
+        width: 100%!important;
+        object-fit: contain;
+      }
+    }
+  }
   @include e(related) {
     @include m(title) {
       margin: 0 auto;

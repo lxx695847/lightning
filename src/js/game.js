@@ -161,6 +161,7 @@ const app = new Vue({
             const { detail } = this
             const resData = res.data[0]
             detail.content = resData[`${this.$langPre}_intro`]
+            detail.detailContent = resData[`${this.$langPre}_detail`]
             detail.videoSrc = this.$imgBase + resData[`${this.$langPre}_video_src`]
             detail.picGroup = resData[`${this.$langPre}_pic_group`].map(item => {
               return {
@@ -173,11 +174,6 @@ const app = new Vue({
                 thumb: this.$imgBase + pay.thumb
               }
             })
-            detail.payInfo = [
-              ...detail.payInfo,
-              ...detail.payInfo,
-              ...detail.payInfo
-            ]
             detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
             this.detail.videoPoster = findVideoCover.call(this, document.getElementById('videoBox'), 160)
             this.$nextTick(() => {

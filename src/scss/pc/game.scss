@@ -364,7 +364,24 @@
     }
 
   }
-
+  @include e(detail) {
+    margin-top: 45px;
+    p {
+      font-size: 22px;
+      font-family: SourceHanSansCN;
+      color: #191919;
+      line-height: 36px; 
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      overflow: hidden;
+      img {
+        width: 100%!important;
+        height: auto;
+        transition: .6s all ease;
+        -webkit-transition: .6s all ease;
+      } 
+    }
+  }
   @include e(news) {
     margin-bottom: 84px;
     @include m(item) {

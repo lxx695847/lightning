@@ -68,6 +68,9 @@
               <div class="swiper-pagination"></div>
             </div>
           </div>
+          <div v-if="detail.detailContent" class="wap-game_detail wap-game_container">
+            <div class="pc-game_content" v-html="detail.detailContent"></div>
+          </div>
           <div v-if="news.length > 0" class="wap-game_related wap-game_container">
             <div class="wap-game_title">
               {{langs.relatedNews}}
@@ -204,6 +207,9 @@
             </div>
             <div class="pc-game_gallery-scrollbar swiper-scrollbar"></div>
           </div>
+        </div>
+        <div v-if="detail.detailContent" class="pc-game_detail common-container">
+          <div class="pc-game_content" v-html="detail.detailContent"></div>
         </div>
         <div v-if="news.length > 0" class="pc-game_news common-container mt62">
           <p class="pc-game_title">

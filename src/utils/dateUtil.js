@@ -25,7 +25,7 @@ export const allDate = [
 ]
 export const formatDate = (time, { hasHour = true } = {}) => {
   const isEn = (location.pathname.startsWith('/zh') ? 'zh' : 'en') === 'en'
-  if (!time) return isEn ? 'No Publish' : '未发布'
+  if (!time) return isEn ? 'Coming Soon' : '敬请期待'
   const date = new Date(time)
   const year = date.getFullYear()
   const month = allMonth[date.getMonth()].slice(0, 3)

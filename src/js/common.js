@@ -7,6 +7,7 @@ import wapFooter from '@/component/wap/footer.js'
 import wapHeader from '@/component/wap/header.js'
 import PcFooter from '@/component/pc/footer.js'
 import PCHeader from '@/component/pc/header.js'
+import cookieTip from '../component/cookie-tip.js'
 import { hasMobile } from '@/utils/index.js'
 import eventBus from '@/utils/EventBus.js'
 import '@/utils/dateUtil'
@@ -162,7 +163,8 @@ export const viewMixin = {
     wapFooter,
     wapHeader,
     PcFooter,
-    'pc-header': PCHeader
+    'pc-header': PCHeader,
+    'cookie-tip': cookieTip
   },
   computed: {
     langs() {
