@@ -41,7 +41,6 @@ export default Vue.extend({
   },
   async mounted() {
     this.acceptValue = !getCookie(cookieName)
-    console.log(this.acceptValue)
   },
   computed: {
     langs() {
