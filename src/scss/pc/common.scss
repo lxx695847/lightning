@@ -515,17 +515,17 @@ $namespace: "pc";
     &.is-en {
       text-align: left;
     }
-    .cookie-agree {
-      width: 50px;
-      background: #F7C700;
-      height: 26px;
-      line-height: 26px;
-      color: #000000;
-      text-align: center;
-      margin-left: 16px;
-      float: right;
-      width: 70px;
-    }
+  }
+  .cookie-agree {
+    width: 50px;
+    background: #F7C700;
+    height: 26px;
+    line-height: 26px;
+    color: #000000;
+    text-align: center;
+    margin-left: 16px;
+    float: right;
+    width: 70px;
   }
   &.is-mobile {
     font-size: rem(16);
@@ -534,11 +534,18 @@ $namespace: "pc";
       max-width: rem(730);
       min-width: rem(500);
       line-height: rem(26);
+    }
+    .cookie-agree-box {
+      padding: 0 rem(5);
+      display: flex;
+      justify-content: flex-end;
       .cookie-agree {
-        width: rem(100);
+        display: inline-block;
+        width: auto;
         height: rem(36);
         line-height: rem(36);
         margin-left: rem(16);
+        padding: 0 rem(5);
       }
     }
   }

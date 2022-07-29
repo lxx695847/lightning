@@ -12,6 +12,10 @@ export default Vue.extend({
       <div class="cookie-con" :class="{'is-en': $langPre === 'en'}">
         {{langs.tips}}
         <a class="cookie-more" :href="policyHref" target="_blank">{{langs.more}}</a>
+        <a v-if="!$isMobile" class="cookie-agree" href="javascript:;" @click="agree">{{langs.agree}}</a>
+        <a v-if="!$isMobile" class="cookie-agree cookie-agree-x" href="javascript:;" @click="close">{{langs.close}}</a>
+      </div>
+      <div v-if="$isMobile" class="cookie-agree-box">
         <a class="cookie-agree" href="javascript:;" @click="agree">{{langs.agree}}</a>
         <a class="cookie-agree cookie-agree-x" href="javascript:;" @click="close">{{langs.close}}</a>
       </div>
