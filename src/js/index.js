@@ -48,6 +48,9 @@ new Vue({
         const { banner } = this
         banner.isVideo = resData[this.$langPre+'_type'] === 2
         banner.bg = `${imgBase}${resData[this.$langPre+'_src']}`
+        if (this.$isMobile && this.$isWeixin) {
+          banner.bg = `${imgBase}${resData[this.$langPre+'_poster']}`
+        }
         const outpost = resData[this.$langPre+'_extra_img']
         banner.outpost = outpost ? `${imgBase}/${outpost}` : ''
         banner.btns = resData[`${this.$langPre}_btn`].map(item => {
@@ -56,6 +59,11 @@ new Vue({
             url: item.btn_url
           }
         })
+        // if (banner.isVideo && this.isWeixn) {
+        //   this.$nextTick(() => {
+        //     this.$refs.banner.setAttribute('poster', resData[this.$langPre+'_video_poster'])
+        //   })
+        // }
       }
     })
     instance.get(homeAPI.recommend).then(res => {

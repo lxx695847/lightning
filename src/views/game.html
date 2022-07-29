@@ -35,7 +35,7 @@
               <img v-else src="../images/pc-game-title-zh.png" alt="">
             </div>
             <div class="wap-game_detail-video">
-              <video
+              <!-- <video
                 id="videoBox"
                 class="slide-video"
                 :src="detail.videoSrc"
@@ -48,7 +48,8 @@
                 webkit-playsinline="true"
                 x5-playsinline="true"
                 playsinline="true">
-              </video>
+              </video> -->
+              <img :src="detail.videoPoster" alt="">
               <i class="icon-play" @click="showVideoBox()"></i>
             </div>
             <div class="wap-game_detail-content">

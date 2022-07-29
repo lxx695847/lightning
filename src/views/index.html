@@ -16,9 +16,9 @@
         <wap-header></wap-header>
         <div class="wap-contaienr wap-home">
           <div class="wap-home_banner">
-            <img v-if="!banner.isVideo" :src="banner.bg" alt="">
-            <video v-else autoplay="autoplay" loop muted='muted' >
-              <source :src="banner.bg" type="video/mp4"/>
+            <img v-if="!banner.isVideo || ($isMobile && $isWeixin)" :src="banner.bg" alt="">
+            <video v-else ref="banner" loop="loop" muted="muted" playsinline="true" webkit-playsinline="true" autoplay="autoplay">
+              <source :src="banner.bg" type="video/mp4">
             </video>
             <div class="wap-home_banner-container">
               <p v-if="banner.outpost" class="outpost">

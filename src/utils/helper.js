@@ -128,7 +128,7 @@ function fBrowser(){
 }
 
 // 判断是否为微信浏览器
-function isWeixn(){
+export function isWeixn(){
   var ua = navigator.userAgent.toLowerCase();
   if(ua.match(/MicroMessenger/i)=="micromessenger") {
     return true;

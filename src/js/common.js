@@ -9,6 +9,7 @@ import PcFooter from '@/component/pc/footer.js'
 import PCHeader from '@/component/pc/header.js'
 import cookieTip from '../component/cookie-tip.js'
 import { hasMobile } from '@/utils/index.js'
+import { isWeixn } from '@/utils/helper.js'
 import eventBus from '@/utils/EventBus.js'
 import '@/utils/dateUtil'
 import VueMeta from 'vue-meta'
@@ -46,6 +47,7 @@ Vue.prototype.$langPre = location.pathname.startsWith('/zh') ? 'zh' : 'en'
 Vue.prototype.$linkPre = '/' + Vue.prototype.$langPre
 Vue.prototype.$imgBase = process.env.VUE_APP_BASE_URL
 Vue.prototype.$isMobile = hasMobile()
+Vue.prototype.$isWeixin = isWeixn()
 if (!Vue.prototype.$isMobile) {
   document.body.className = 'pc-body pc-body-init'
 } else {
@@ -78,6 +80,7 @@ export function findVideoCover (video, width, height) {
   const canvas = document.createElement("canvas")
   canvas.width = width
   canvas.height = height
+  video.play();
   this.$nextTick(()=>{
     // 利用canvas对象方法绘图
     canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);

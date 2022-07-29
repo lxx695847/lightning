@@ -80,6 +80,9 @@ const app = new Vue({
   //   }
   // },
   methods: {
+    test() {
+      alert(1)
+    },
     initDomEvent() {
       if (this.$isMobile) {
         this.$nextTick(() => {
@@ -175,7 +178,7 @@ const app = new Vue({
               }
             })
             detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
-            this.detail.videoPoster = findVideoCover.call(this, document.getElementById('videoBox'), 160)
+            this.detail.videoPoster = this.$imgBase + resData[`${this.$langPre}_video_poster`]// findVideoCover.call(this, document.getElementById('videoBox'), 160)
             this.$nextTick(() => {
               this.initDomEvent()
             })
