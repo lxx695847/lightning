@@ -93,7 +93,6 @@ export function findVideoCover (video, width, height) {
 Vue.directive("ready", {
   // 当被绑定的元素插入到 DOM 中时……
   bind (el, binding, vnode) {
-    console.log(vnode)
     el.style.display = 'none'
     // 聚焦元素
     var div = document.createElement('div');

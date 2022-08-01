@@ -46,9 +46,10 @@ new Vue({
       if (res.code === 200) {
         const resData = res.data[0]
         const { banner } = this
-        banner.isVideo = resData[this.$langPre+'_type'] === 2
+        const langPre = this.$langPre === 'zh' ? 'ch' : this.$langPre
+        banner.isVideo = resData[`${langPre}_type`] === 2
         banner.bg = `${imgBase}${resData[this.$langPre+'_src']}`
-        if (this.$isMobile && this.$isWeixin) {
+        if (this.$isMobile && this.$isWeixin && banner.isVideo) {
           banner.bg = `${imgBase}${resData[this.$langPre+'_poster']}`
         }
         const outpost = resData[this.$langPre+'_extra_img']
