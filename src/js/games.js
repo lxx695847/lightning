@@ -21,6 +21,7 @@ const app = new Vue({
   data() {
     return {
       gameList: [],
+      banner: '',
       zhLang: {
         releaseDate: '发布时间',
         developer: '开发者',
@@ -36,7 +37,8 @@ const app = new Vue({
   async created() {
     const res = await instance.get(gamesAPI.list)
     if (res.code === 200) {
-      this.gameList = res.data.map(item => {
+      this.banner = this.$imgBase + res.data.banner[`${this.$langPre}_banner`]
+      this.gameList = res.data.list.map(item => {
         return {
           id: item.id,
           href: `/${this.$langPre}/game.html?id=${item.id}`,

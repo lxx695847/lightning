@@ -116,7 +116,7 @@ Vue.directive("ready", {
       timeOut = true
     }, 1000)
     document.onreadystatechange = () => {
-      if (document.readyState === 'complete') {
+      if (document.readyState === 'complete' && vnode.context.requestComplete) {
         // document ready
         isComplete = true
         if (timeOut) {
@@ -129,11 +129,12 @@ Vue.directive("ready", {
     };
   },
 });
-const bannerAPI = `/commonBanner`
+// const bannerAPI = `/commonBanner`
 export const viewMixin = {
   data() {
     return {
-      banner: '',
+      // banner: '',
+      requestComplete: false,
       zhLang: {
         newsDate: '发布日期：',
         more: '加载更多',
@@ -152,15 +153,22 @@ export const viewMixin = {
       }
     }
   },
-  created() {
-    if (Object.prototype.toString.call(this.banner) === '[object String]') {
-      instance.get(bannerAPI).then(async res => {
-        if (res.code === 200) {
-            this.banner = this.$imgBase + res.data[`${this.$langPre}_banner`]
-          }
-      })
+  watch: {
+    requestComplete() {
+      if(this.requestComplete) {
+        
+      }
     }
   },
+  // created() {
+  //   if (Object.prototype.toString.call(this.banner) === '[object String]') {
+  //     instance.get(bannerAPI).then(async res => {
+  //       if (res.code === 200) {
+  //           this.banner = this.$imgBase + res.data[`${this.$langPre}_banner`]
+  //         }
+  //     })
+  //   }
+  // },
   components: {
     wapFooter,
     wapHeader,

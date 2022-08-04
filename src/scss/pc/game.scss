@@ -279,7 +279,7 @@
     @include m(topnext) {
       top: (706 / 2) * 1px;
       transform: translateY(50%);
-      right: -46px;
+      // right: -46px;
       &::after {
         width: 48px;
         height: 78px;
@@ -292,7 +292,7 @@
     @include m(topprev) {
       top: (706 / 2) * 1px;
       transform: translateY(-50%);
-      left: -46px;
+      // left: -46px;
       &::after {
         width: 48px;
         height: 78px;
@@ -367,13 +367,13 @@
   @include e(detail) {
     margin-top: 45px;
     p {
-      font-size: 22px;
-      font-family: SourceHanSansCN;
-      color: #191919;
-      line-height: 36px; 
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      overflow: hidden;
+      // font-size: 22px;
+      // font-family: SourceHanSansCN;
+      // color: #191919;
+      // line-height: 36px; 
+      // margin-block-start: 1em;
+      // margin-block-end: 1em;
+      // overflow: hidden;
       img {
         width: 100%!important;
         height: auto;
@@ -391,9 +391,9 @@
       background-color: rgba(241, 241, 241, 1);
       .img-box {
         width: 311px;
+        display: flex;
         img {
-          width: auto;
-          height: auto;
+          object-fit: cover;
         }
       }
       .content {
@@ -426,10 +426,10 @@
           font-family: SourceHanSansCN;
           font-weight: 400;
           color: #8F8F8F;
-          line-height: 23px;
+          line-height: 30px;
           display: -webkit-box;
           /*设置为弹性盒子*/
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 2;
           /*最多显示3行*/
           overflow: hidden;
           /*超出隐藏*/

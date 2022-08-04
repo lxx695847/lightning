@@ -187,10 +187,9 @@
           </div>
         </div> -->
         <div v-if="detail.picGroup && detail.picGroup.length > 0" class="pc-game_gallery common-container mt62">
-          <div class="pc-game_title ">
-            <!-- {{detail.en_title}} -->
+          <!-- <div class="pc-game_title ">
             {{langs.gallery}}
-          </div>
+          </div> -->
           <div class="swiper pc-game_gallery-top">
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item, index) in detail.picGroup" :key="index" @click="previewImage(index)">
@@ -251,7 +250,7 @@
             x5-playsinline="true"
             playsinline="true">
           </video>
-          <i class="icon-play" v-show="!video.isPlay && !$isMobile"></i>
+          <i class="icon-play" v-show="!video.isPlay && !$isMobile" @click="playVideo"></i>
         </div>
       </div>
       <div class="preview-game_img" @click="closePreview()" v-show="preview.visible">

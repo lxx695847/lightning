@@ -24,6 +24,7 @@ const app = new Vue({
   },
   data() {
     return {
+      banner: '',
       page: {
         data: [],
         loading: false,
@@ -59,6 +60,7 @@ const app = new Vue({
         }
       })
       if (res.code === 200) {
+        this.banner = this.$imgBase + res.data.banner[`${this.$langPre}_banner`]
         const result = res.data.list.map(item => {
           return {
             id: item.id,

@@ -101,7 +101,7 @@
   @include e(title) {
     display: flex;
     justify-content: space-between;
-    font-size: 24px;
+    font-size: 32px;
     align-items: center;
     color: #F7C700;
     @include m(left) {
@@ -265,7 +265,7 @@
         cursor: pointer;
         .title {
           display: block;
-          font-size: 24px;
+          font-size: 18px;
           font-family: SourceHanSansCN;
           font-weight: 500;
           color: #4D4D4D;
@@ -281,7 +281,7 @@
         .date {
           margin-top: 12px;
           display: block;
-          font-size: 18px;
+          font-size: 16px;
           font-family: SourceHanSansCN;
           font-weight: 400;
           color: #CFCFCF;

@@ -35,7 +35,7 @@
               <!-- <img src="../images/wap/home/home-games.png" alt=""> -->
               {{ gamesTitle.content }}
             </p>
-            <van-row type="flex" gutter="24" class="wap-home_games-list">
+            <van-row type="flex" class="wap-home_games-list">
               <van-col v-for="(item, index) in gamesList" :key="index" span="12" class="wap-home_games-item wap-home_box-item">
                 <a :href="item.href">
                   <div class="img-box">
@@ -45,7 +45,7 @@
                 </a>
               </van-col>
             </van-row>
-            <a class="wap-home_box-more" :href="gamesTitle.url">{{gamesTitle.more}}</a>
+            <a class="wap-home_box-more wap-home_news-more" :href="gamesTitle.url">{{gamesTitle.more}}</a>
           </div>
           <div class="wap-home_news wap-home_container  wap-home_box">
             <p class="wap-home_box-title">

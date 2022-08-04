@@ -42,7 +42,7 @@ new Vue({
     }
   },
   async created() {
-    instance.get(homeAPI.banner).then(res => {
+    const bannerResult = (res) => {
       if (res.code === 200) {
         const resData = res.data[0]
         const { banner } = this
@@ -66,8 +66,8 @@ new Vue({
         //   })
         // }
       }
-    })
-    instance.get(homeAPI.recommend).then(res => {
+    }
+    const recommendResult = (res) => {
       const { gamesTitle, newsTitle } = this
       if (res.code === 200) {
         const [gamesRes, newsRes] = res.data
@@ -96,7 +96,12 @@ new Vue({
         newsTitle.url = newsRes[`${this.$langPre}_more_url`]
         newsTitle.more = newsRes[`${this.$langPre}_more_title`]
       }
-    }) 
+    }
+    Promise.all([instance.get(homeAPI.banner), instance.get(homeAPI.recommend)]).then(res => {
+      bannerResult(res[0])
+      recommendResult(res[1])
+      if (res[0].code === 200 && res[1].code === 200) this.requestComplete = true
+    })
   },
   mounted() {
     if (!this.$isMobile) {
