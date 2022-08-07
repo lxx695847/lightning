@@ -17,7 +17,8 @@ new Vue({
   mixins: [viewMixin],
   data() {
     return {
-      content: ''
+      content: '',
+      banner: ''
     }
   },
   async created() {
@@ -25,6 +26,7 @@ new Vue({
     if(res.code === 200) {
       const resData = res.data
       this.content = this.escape2Html(resData[`${this.$langPre}_content`])
+      this.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
     }
     this.initMeta()
   },

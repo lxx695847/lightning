@@ -89,7 +89,6 @@ export function findVideoCover (video, width, height) {
     return img
   })
 }
-
 Vue.directive("ready", {
   // 当被绑定的元素插入到 DOM 中时……
   bind (el, binding, vnode) {
@@ -104,27 +103,29 @@ Vue.directive("ready", {
     // body.scrollTop = 0
 		//动态插入到body中
 		body.insertBefore(div, body.firstChild);
-    let isComplete = false
-    let timeOut = false
-    setTimeout(() => {
-      if (isComplete) {
-        div.className = 'hide-page-loading'
-        el.style.display = 'block'
-        el.scrollTop = 0
-        eventBus.$emit('showCallback')
-      }
-      timeOut = true
-    }, 1000)
+    // let isComplete = false
+    // let timeOut = false
+    // setTimeout(() => {
+    //   if (isComplete) {
+    //     div.className = 'hide-page-loading'
+    //     el.style.display = 'block'
+    //     el.scrollTop = 0
+    //     eventBus.$emit('showCallback')
+    //   }
+    //   timeOut = true
+    // }, 1000)
     document.onreadystatechange = () => {
-      if (document.readyState === 'complete' && vnode.context.requestComplete) {
+      if (document.readyState === 'complete') {
         // document ready
-        isComplete = true
-        if (timeOut) {
-          div.className = 'hide-page-loading'
-          el.style.display = 'block'
-          el.scrollTop = 0
-          eventBus.$emit('showCallback')
-        }
+        // isComplete = true
+        vnode.context.ready.state = true
+        console.log(vnode.context.ready)
+        // if (timeOut) {
+        //   div.className = 'hide-page-loading'
+        //   el.style.display = 'block'
+        //   el.scrollTop = 0
+        //   eventBus.$emit('showCallback')
+        // }
       }
     };
   },
@@ -134,7 +135,10 @@ export const viewMixin = {
   data() {
     return {
       // banner: '',
-      requestComplete: false,
+      ready: {
+        request: false,
+        state: false
+      },
       zhLang: {
         newsDate: '发布日期：',
         more: '加载更多',
@@ -154,11 +158,22 @@ export const viewMixin = {
     }
   },
   watch: {
-    requestComplete() {
-      if(this.requestComplete) {
-        
-      }
-    }
+    ready: {
+      handler() {
+        if (this.ready.request && this.ready.state) {
+          setTimeout(() => {
+            const div = document.querySelector('.page-loading')
+            if (div) {
+              div.className = 'hide-page-loading'
+              this.$el.style.display = 'block'
+              this.$el.scrollTop = 0
+              eventBus.$emit('showCallback')
+            }
+          }, 1000)
+        }
+      },
+      deep: true
+    },
   },
   // created() {
   //   if (Object.prototype.toString.call(this.banner) === '[object String]') {

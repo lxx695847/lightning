@@ -12,10 +12,14 @@
     height: 100vh;
     position: relative;
     margin-top: rem(88);
-    img, video {
+    video {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+    img {
+      width: 100%;
+      object-fit: contain;
     }
     @include m(container) {
       position: absolute;
@@ -52,6 +56,7 @@
     margin-top: rem(35);
     @include m(item) {
       margin-bottom: rem(18);
+      padding: 0 rem(9);
     }
     // title
     @include m(title) {
@@ -84,7 +89,10 @@
 
   // game 列表
   @include e(games) {
-    margin: 0 rem(-10);
+    @include m(list) {
+      margin-left: rem(-9);
+      margin-right: rem(-9);
+    }
     @include m(item) {
       position: relative;
       .img-box {

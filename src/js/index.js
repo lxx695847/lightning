@@ -100,7 +100,7 @@ new Vue({
     Promise.all([instance.get(homeAPI.banner), instance.get(homeAPI.recommend)]).then(res => {
       bannerResult(res[0])
       recommendResult(res[1])
-      if (res[0].code === 200 && res[1].code === 200) this.requestComplete = true
+      if (res[0].code === 200 && res[1].code === 200) this.ready.request = true
     })
   },
   mounted() {

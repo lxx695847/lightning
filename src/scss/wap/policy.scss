@@ -24,13 +24,22 @@
     }
     @include m(intro) {
       margin-top: rem(8);
+      * {
+        word-break: break-all;
+        color: initial;
+        font-size: initial;
+      }
       p {
-        margin-bottom: rem(45);
         font-size: rem(26);
-        font-family: SourceHanSansCN;
-        font-weight: 400;
+        // font-weight: 400;
         color: #5C5C5C;
         line-height: rem(40);
+        margin-bottom: rem(20);
+        font-size: initial;
+        img {
+         max-width: 100%!important;
+          object-fit: contain;
+        }
       }
     }
     @include m(imgs) {

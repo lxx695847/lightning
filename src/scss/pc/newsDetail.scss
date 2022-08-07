@@ -35,7 +35,8 @@
     }
     @include m(desc) {
       margin-top: 37px;
-      font-size: 30px;
+      font-size: 24px;
+      line-height: 30px;
       color: #8F8F8F;
     }
     @include m(date) {
@@ -103,21 +104,5 @@
   @include e(content) {
     margin-top: 45px;
     margin-bottom: 115px;
-    p {
-      font-size: 22px;
-      font-family: SourceHanSansCN;
-      font-weight: bold;
-      color: #191919;
-      line-height: 36px; 
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      overflow: hidden;
-      img {
-        width: 100%!important;
-        height: auto;
-        transition: .6s all ease;
-        -webkit-transition: .6s all ease;
-      } 
-    }
   }
 }

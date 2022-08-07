@@ -134,15 +134,18 @@
     margin-top: rem(68);
     * {
       word-break: break-all;
+      color: initial;
+      font-size: initial;
     }
     p {
-      // font-size: rem(26);
+      font-size: rem(26);
       // font-weight: 400;
-      // color: #5C5C5C;
-      // line-height: rem(40);
+      color: #5C5C5C;
+      line-height: rem(40);
       margin-bottom: rem(20);
+      font-size: initial;
       img {
-        width: 100%!important;
+       max-width: 100%!important;
         object-fit: contain;
       }
     }
@@ -193,11 +196,11 @@
     }
   }
   @include e(title) {
-    font-size: rem(27);
+    font-size: rem(32);
     font-weight: bold;
     color: #F7C700;
-    text-align: center;
-    line-height: rem(27);
+    // text-align: center;
+    line-height: rem(32);
     margin-bottom: rem(40);
     margin-top: rem(70);
   }

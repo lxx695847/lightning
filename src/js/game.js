@@ -29,7 +29,8 @@ const app = new Vue({
         videoSrc: '',
         videoPoster: '',
         picGroup: [], // en_pic_group
-        payInfo: []
+        payInfo: [],
+        buyBtn: ''
       },
       relateNewsHref: `${this.$linkPre}/news.html`,
       news: [],
@@ -80,9 +81,6 @@ const app = new Vue({
   //   }
   // },
   methods: {
-    test() {
-      alert(1)
-    },
     initDomEvent() {
       if (this.$isMobile) {
         this.$nextTick(() => {
@@ -166,6 +164,7 @@ const app = new Vue({
             detail.content = resData[`${this.$langPre}_intro`]
             detail.detailContent = resData[`${this.$langPre}_detail`]
             detail.videoSrc = this.$imgBase + resData[`${this.$langPre}_video_src`]
+            detail.buyBtn = this.$imgBase + resData[`${this.$langPre}_pay_buy`]
             detail.picGroup = resData[`${this.$langPre}_pic_group`].map(item => {
               return {
                 src: this.$imgBase + item.src

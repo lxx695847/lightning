@@ -29,12 +29,6 @@
       }
     }
     .content {
-      font-size: 24px;
-      color: rgba(92, 92, 92, 1);
-      p {
-        margin-top: 20px;
-        word-break: break-word;
-      }
     }
   }
   @include e(images) {

@@ -34,15 +34,18 @@
       margin-top: rem(68);
       * {
         word-break: break-all;
+        color: initial;
+        font-size: initial;
       }
       p {
         font-size: rem(26);
-        font-weight: 400;
+        // font-weight: 400;
         color: #5C5C5C;
         line-height: rem(40);
         margin-bottom: rem(20);
+        font-size: initial;
         img {
-          width: 100%!important;
+         max-width: 100%!important;
           object-fit: contain;
         }
       }

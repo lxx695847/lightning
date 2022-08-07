@@ -18,10 +18,11 @@
             <img :src="detail.banner" alt="">
             <!-- 只有一个-->
             <a v-if="detail.payInfo.length === 1" class="buy" :href="detail.payInfo[0].payUrl"  target="_blank">
-              {{langs.buy}}
+              <img :src="detail.buyBtn" alt="">
             </a>
             <div v-else-if="detail.payInfo.length > 1" class="buy" @click="wap.showPayInfo = !wap.showPayInfo">
-              {{langs.buy}}
+              <!-- {{langs.buy}} -->
+              <img :src="detail.buyBtn" alt="">
             </div>
             <p v-if="detail.payInfo.length > 1" class="platforms" :class="{'is-active': wap.showPayInfo}">
               <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl"  target="_blank">
@@ -57,7 +58,7 @@
             </div>
           </div>
           <div v-if="detail.picGroup && detail.picGroup.length > 0" class="wap-game_gallery">
-            <div class="wap-game_title">
+            <div class="wap-game_title wap-game_container">
               {{langs.gallery}}
             </div>
             <div class="wap-game_gallery-swiper swiper">
@@ -209,7 +210,7 @@
           </div>
         </div>
         <div v-if="detail.detailContent" class="pc-game_detail common-container">
-          <div class="pc-game_content" v-html="detail.detailContent"></div>
+          <div class="pc-game_content html-style" v-html="detail.detailContent"></div>
         </div>
         <div v-if="news.length > 0" class="pc-game_news common-container mt62">
           <p class="pc-game_title">
