@@ -6,14 +6,16 @@
   
 }
 .h-style {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: normal;
-    font-size: 100%;
+  .content {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+      font-size: rem(30)!important;
+    }
   }
 }
 [v-cloak]{
