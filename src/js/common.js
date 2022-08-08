@@ -48,10 +48,13 @@ Vue.prototype.$linkPre = '/' + Vue.prototype.$langPre
 Vue.prototype.$imgBase = process.env.VUE_APP_BASE_URL
 Vue.prototype.$isMobile = hasMobile()
 Vue.prototype.$isWeixin = isWeixn()
+const bodyClass = document.body.className
 if (!Vue.prototype.$isMobile) {
-  document.body.className = 'pc-body pc-body-init'
+  document.body.className = bodyClass + ' pc-body pc-body-init'
 } else {
   document.body.style.overflowY = 'auto'
+  document.getElementsByTagName('html')[0].style.fontSize = '13.33vw'
+  document.body.className = bodyClass + ' h-style'
 }
 // 监听resize
 // var resizeTimer = null;

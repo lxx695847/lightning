@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 13.33vw">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -25,9 +25,11 @@
                 <img :src="banner.outpost" alt="">
               </p>
               <!-- <p class="readmore">Read More</p> -->
-              <a class="readmore" v-for="(item, index) in banner.btns" :key="index" :href="item.url">
-                <img :src="item.src">
-              </a>
+              <p class="readmore">
+                <a v-for="(item, index) in banner.btns" :key="index" :href="item.url">
+                  <img :src="item.src">
+                </a>
+              </p>
             </div>
           </div>
           <div class="wap-home_games wap-home_container wap-home_box">
@@ -41,7 +43,7 @@
                   <div class="img-box">
                     <img :src="item.src" alt="">
                   </div>
-                  <div class="title">{{item.title}}</div>
+                  <!-- <div class="title">{{item.title}}</div> -->
                 </a>
               </van-col>
             </van-row>

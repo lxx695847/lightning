@@ -94,7 +94,7 @@ const app = new Vue({
         var swiper = new Swiper(".pc-game_gallery-thumbs", {
           loop: false,
           spaceBetween: 10,
-          slidesPerView: 4,
+          slidesPerView: 5,
           freeMode: true,
           watchSlidesProgress: true,
           scrollbar: {
@@ -164,7 +164,7 @@ const app = new Vue({
             detail.content = resData[`${this.$langPre}_intro`]
             detail.detailContent = resData[`${this.$langPre}_detail`]
             detail.videoSrc = this.$imgBase + resData[`${this.$langPre}_video_src`]
-            detail.buyBtn = this.$imgBase + resData[`${this.$langPre}_pay_buy`]
+            detail.buyBtn = this.$imgBase + resData[`${this.$langPre}_pay_but`]
             detail.picGroup = resData[`${this.$langPre}_pic_group`].map(item => {
               return {
                 src: this.$imgBase + item.src

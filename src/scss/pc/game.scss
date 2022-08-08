@@ -328,13 +328,13 @@
         box-shadow: -5px 0px 15px 10px rgba(255, 255, 255, 0.83);
       }
       .swiper-slide {
-        width: 328px;
-        height: 188px;
+        // width: 328px;
+        // height: 188px;
         margin: 0 17px;
         img {
-          width: 320px;
-          height: 180px;
-          object-fit: cover;
+          width: 100%;
+          object-fit: contain;
+          border: 4px solid transparent;
         }
       }
       .swiper-slide-thumb-active {

@@ -40,15 +40,22 @@
         }
       }
       .readmore {
-        width: rem(322);
-        height: rem(90);
-        text-align: center;
-        line-height: rem(90);
-        font-size: rem(12);
-        color: #fff;
-        // background-color: #fad54d;
-        margin: 0 auto;
-        margin-top: rem(52);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        a {
+          max-width: rem(222);
+          text-align: center;
+          line-height: rem(90);
+        }
+        // width: rem(322);
+        // // height: rem(90);
+        // font-size: rem(12);
+        // color: #fff;
+        // // background-color: #fad54d;
+        // margin: 0 auto;
+        // margin-top: rem(52);
+        // display: flex;
       }
     }
   }

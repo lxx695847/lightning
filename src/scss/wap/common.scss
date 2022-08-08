@@ -3,6 +3,18 @@
 .lt-wap {
   position: relative;
   min-height: 100vh;
+  
+}
+.h-style {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+    font-size: 100%;
+  }
 }
 [v-cloak]{
   background-color: #171616;

@@ -110,40 +110,40 @@ $namespace: "pc";
     background-color: #e5e6ea;
   }
   .html-style {
-    >* {
+    p, div, span {
       word-break: break-all;
       font-size: 22px;
       // font-family: SourceHanSansCN;
       // font-weight: bold;
       // color: #191919;
-      // line-height: 36px; 
+      line-height: 36px; 
       // margin-block-start: 1em;
       // margin-block-end: 1em;
       // overflow: hidden;
     }
-    h1 {
-      font-weight: bold;
-      font-size: 2em;
-    }
-    h2 {
-      font-weight: bold;
-      font-size: 1.5em;
-    }
-    h3 {
-      font-weight: bold;
-      font-size: 1em;
-    }
-    h4 {
-      font-weight: bold;
-    }
-    h5 {
-      font-size: 0.83em;
-      font-weight: bold;
-    }
-    h6 {
-      font-size: 0.67em;
-      font-weight: bold;
-    }
+    // h1 {
+    //   font-weight: bold;
+    //   font-size: 2em;
+    // }
+    // h2 {
+    //   font-weight: bold;
+    //   font-size: 1.5em;
+    // }
+    // h3 {
+    //   font-weight: bold;
+    //   font-size: 1em;
+    // }
+    // h4 {
+    //   font-weight: bold;
+    // }
+    // h5 {
+    //   font-size: 0.83em;
+    //   font-weight: bold;
+    // }
+    // h6 {
+    //   font-size: 0.67em;
+    //   font-weight: bold;
+    // }
     p {
       // font-size: 22px;
       // font-family: SourceHanSansCN;

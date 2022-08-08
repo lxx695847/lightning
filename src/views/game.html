@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="font-size: 13.33vw">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -104,8 +104,9 @@
           <div class="common-container">
             <div class="buy-container">
               <div v-if="detail.payInfo.length > 1" class="buy-img">
-                <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
-                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
+                <!-- <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
+                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt=""> -->
+                <img :src="detail.buyBtn" alt="">
               </div>
               <p v-if="detail.payInfo.length > 1" class="platforms">
                 <a v-for="(item, index) in detail.payInfo" :key="index" :href="item.payUrl">
@@ -114,8 +115,9 @@
               </p>
               <!-- 只有一个-->
               <a v-if="detail.payInfo.length === 1" class="buy-img" :href="detail.payInfo[0].payUrl"  target="_blank">
-                <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
-                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt="">
+                <!-- <img v-if="$langPre==='en'" src="../images/pc-game-buy-en.png" srcset="../images/pc-game-buy-en@2x.png 2x" alt="">
+                <img v-else src="../images/pc-game-buy-zh.png" srcset="../images/pc-game-buy-zh@2x.png 2x" alt=""> -->
+                <img :src="detail.buyBtn" alt="">
               </a>
             </div>
           </div>
