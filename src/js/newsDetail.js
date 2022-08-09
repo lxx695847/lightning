@@ -70,20 +70,20 @@ new Vue({
           detail.banner = this.$imgBase + resData[`${this.$langPre}_banner`]
           this.initMeta()
           this.$nextTick(() => {
-            this.markQrCode()
+            !this.$isMobile && this.markQrCode()
           })
         }
       }
     },
     markQrCode() {
       // 生成二维码
-      new QRCode("qrcode", {
+      new QRCode("#qrcode", {
         text: location.href,
         width: 100,
         height: 100,
         colorDark : "#000000",
         colorLight : "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
+        // correctLevel: QRCode.CorrectLevel.H
       });
     },
     shareWeibo() {

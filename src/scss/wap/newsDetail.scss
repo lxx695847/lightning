@@ -34,8 +34,12 @@
       margin-top: rem(68);
       * {
         word-break: break-all;
-        color: initial;
+        // color: initial;
         // font-size: initial;
+      }
+      iframe {
+        width: 100%;
+        height: auto;
       }
       p {
         font-size: rem(26);
