@@ -110,9 +110,9 @@ $namespace: "pc";
     background-color: #e5e6ea;
   }
   .html-style {
+    font-size: 16px;
     p, div, span {
       word-break: break-all;
-      font-size: 12px;
       // font-family: SourceHanSansCN;
       // font-weight: bold;
       // color: #191919;
@@ -121,29 +121,24 @@ $namespace: "pc";
       // margin-block-end: 1em;
       // overflow: hidden;
     }
-    // h1 {
-    //   font-weight: bold;
-    //   font-size: 2em;
-    // }
-    // h2 {
-    //   font-weight: bold;
-    //   font-size: 1.5em;
-    // }
-    // h3 {
-    //   font-weight: bold;
-    //   font-size: 1em;
-    // }
-    // h4 {
-    //   font-weight: bold;
-    // }
-    // h5 {
-    //   font-size: 0.83em;
-    //   font-weight: bold;
-    // }
-    // h6 {
-    //   font-size: 0.67em;
-    //   font-weight: bold;
-    // }
+    h1 {
+      font-size: 40px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    h3 {
+      font-size: 26.6px;
+    }
+    h4 {
+      font-size: 20px;
+    }
+    h5 {
+      font-size: 16.6px;
+    }
+    h6 {
+      font-size: 13.4px;
+    }
     p {
       // font-size: 22px;
       // font-family: SourceHanSansCN;
