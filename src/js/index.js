@@ -38,7 +38,8 @@ new Vue({
         url: '',
         more: ''
       },
-      newsList: []
+      newsList: [],
+      isPage2: false
     }
   },
   async created() {
@@ -105,21 +106,20 @@ new Vue({
   },
   mounted() {
     if (!this.$isMobile) {
-      let isPage2 = false
       let endTime = 0
       const containerStyle = this.$refs.bannerBox.style
       const bodyDom = document.body
       const className = bodyDom.className
       const scrollPage = (isDown, pageY, e) => {
         if (new Date() - endTime < 500) return
-        if(isDown && !isPage2){
-          isPage2 = !isPage2;
+        if(isDown && !this.isPage2){
+          this.isPage2 = !this.isPage2;
           containerStyle.marginTop = `-100vh`;
           setTimeout(() => {
             bodyDom.className = className + ' page2'
           }, 500)
-        } else if(!isDown && isPage2) {
-          isPage2 = !isPage2;
+        } else if(!isDown && this.isPage2) {
+          this.isPage2 = !this.isPage2;
           bodyDom.className = className
           containerStyle.marginTop = `0`;
         }
@@ -149,6 +149,16 @@ new Vue({
     }
   },
   methods: {
+    jumpLeave() {
+      this.isPage2 = !this.isPage2;
+      const containerStyle = this.$refs.bannerBox.style
+      const bodyDom = document.body
+      const className = bodyDom.className
+      containerStyle.marginTop = `-100vh`;
+      setTimeout(() => {
+        bodyDom.className = className + ' page2'
+      }, 500)
+    },
     cumputeDate(time) {
       if (!time) return
       const publishDate = new Date(time * 1000)

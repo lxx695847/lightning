@@ -116,7 +116,7 @@ $namespace: "pc";
       // font-family: SourceHanSansCN;
       // font-weight: bold;
       // color: #191919;
-      line-height: 36px; 
+      line-height: 36px;
       // margin-block-start: 1em;
       // margin-block-end: 1em;
       // overflow: hidden;
@@ -143,16 +143,16 @@ $namespace: "pc";
       // font-size: 22px;
       // font-family: SourceHanSansCN;
       // color: #191919;
-      // line-height: 36px; 
+      // line-height: 36px;
       // margin-block-start: 1em;
       // margin-block-end: 1em;
       // overflow: hidden;
       img {
-        max-width: 100%; 
+        max-width: 100%;
         height: auto;
         transition: .6s all ease;
         -webkit-transition: .6s all ease;
-      } 
+      }
     }
   }
 }
@@ -266,6 +266,7 @@ $namespace: "pc";
     background-size: contain;
     position: relative;
     top: -13px;
+    background-repeat: no-repeat;
   }
   @include e('navs-box') {
     display: flex;
