@@ -1,5 +1,5 @@
 @import "./common.scss";
-@import "../../component/pc/pagination/index.scss";
+@import "../../../component/pc/pagination/index.scss";
 @include b(news) {
   @include e(banner) {
     z-index: -1;
@@ -19,9 +19,9 @@
       }
     }
   }
-  
+
   @include e(container) {
-    background-image: url('../../images/pc-bg.png');
+    background-image: url('../../../images/pc-bg.png');
     background-size: cover;
   }
   @include e(title) {

@@ -35,7 +35,7 @@ export default Vue.extend({
   data() {
     return {
       footer: {
-        footerLogo: require('../../images/wap/footer-logo.png'),
+        footerLogo: require('../../../images/wap/footer-logo.png'),
         copyright: [],
         media: [],
         email: '',

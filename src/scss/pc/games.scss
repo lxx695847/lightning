@@ -28,7 +28,7 @@
     }
   }
   @include e(container) {
-    background-image: url('../../images/pc-bg.png');
+    background-image: url('../../../images/pc-bg.png');
     background-size: cover;
   }
   @include e(list) {

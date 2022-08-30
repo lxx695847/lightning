@@ -1,4 +1,4 @@
-@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+@import "../../../plugins/swiper-7.0.8/swiper-bundle.min.css";
 @import "./common.scss";
 @include b(game) {
   display: flex;
@@ -68,7 +68,7 @@
         height: 100%;
         object-fit: cover;
       }
-      .icon-play {    
+      .icon-play {
         width: rem(100);
         height: rem(100);
         position: absolute;
@@ -76,7 +76,7 @@
         left: 50%;
         transform: scale(0.8);
         position: absolute;
-        background: url('../../images/wap/game/game-play.png') no-repeat;
+        background: url('../../../images/wap/game/game-play.png') no-repeat;
         background-size: contain;
         transform: translate(-50%, -50%);
       }
@@ -240,4 +240,4 @@
       }
     }
   }
-} 
+}

@@ -1,4 +1,4 @@
-@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+@import "../../../plugins/swiper-7.0.8/swiper-bundle.min.css";
 @import "./common.scss";
 @include b(news) {
   display: flex;
@@ -47,9 +47,9 @@
           color: #4D4D4D;
           overflow: hidden;
           text-overflow: ellipsis;
-          display: -webkit-box; 
+          display: -webkit-box;
           -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2; 
+          -webkit-line-clamp: 2;
         }
         p:nth-child(2) {
           font-size: rem(22);
@@ -79,4 +79,4 @@
       color: #F7C700;
     }
   }
-} 
+}

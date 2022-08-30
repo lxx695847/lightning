@@ -1,5 +1,5 @@
 @import "./common.scss";
-@import "../../plugins/swiper-7.0.8/swiper-bundle.min.css";
+@import "../../../plugins/swiper-7.0.8/swiper-bundle.min.css";
 
 .preview-game_video {
   background: rgba(0, 0, 0, 0.8);
@@ -22,7 +22,7 @@
       height: 100%;
       object-fit: cover;
     }
-    .icon-play {    
+    .icon-play {
       width: 118px;
       height: 118px;
       position: absolute;
@@ -30,7 +30,7 @@
       left: 50%;
       transform: scale(0.8);
       position: absolute;
-      background: url('../../images/pc/sprite-icon.png') no-repeat;
+      background: url('../../../images/pc/sprite-icon.png') no-repeat;
       background-position: 0 0;
       margin: -59px 0 0 -59px;
     }
@@ -224,7 +224,7 @@
           height: 100%;
           object-fit: cover;
         }
-        .icon-play {    
+        .icon-play {
           width: 118px;
           height: 118px;
           cursor: pointer;
@@ -233,7 +233,7 @@
           left: 50%;
           transform: scale(0.8);
           position: absolute;
-          background: url('../../images/pc/sprite-icon.png') no-repeat;
+          background: url('../../../images/pc/sprite-icon.png') no-repeat;
           background-position: 0 0;
           margin: -59px 0 0 -59px;
         }
@@ -285,7 +285,7 @@
         width: 48px;
         height: 78px;
         content: '';
-        background-image: url(../../images/pc/game/game-arrow.png);
+        background-image: url(../../../images/pc/game/game-arrow.png);
         background-repeat: no-repeat;
         background-size: contain;
       }
@@ -298,7 +298,7 @@
         width: 48px;
         height: 78px;
         content: '';
-        background-image: url(../../images/pc/game/game-arrow.png);
+        background-image: url(../../../images/pc/game/game-arrow.png);
         background-repeat: no-repeat;
         transform: rotate(180deg);
         background-size: contain;
@@ -395,8 +395,8 @@
           font-weight: bold;
           color: #201C1E;
           display: inline-block;
-          white-space: nowrap; 
-          width: 100%; 
+          white-space: nowrap;
+          width: 100%;
           overflow: hidden;
           text-overflow:ellipsis;
         }

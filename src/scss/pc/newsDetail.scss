@@ -19,7 +19,7 @@
     }
   }
   @include e(container) {
-    background-image: url('../../images/pc-bg.png');
+    background-image: url('../../../images/pc-bg.png');
     background-size: cover;
   }
   @include e(info) {
@@ -98,9 +98,9 @@
         }
       }
     }
-    
+
   }
-  
+
   @include e(content) {
     margin-top: 45px;
     margin-bottom: 115px;

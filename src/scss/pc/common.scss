@@ -262,7 +262,7 @@ $namespace: "pc";
     width: 157px;
     height: 44px;
     display: block;
-    background-image: url('../../images/pc/logo@2x.png');
+    background-image: url('../../../images/pc/logo@2x.png');
     background-size: contain;
     position: relative;
     top: -13px;
@@ -328,7 +328,7 @@ $namespace: "pc";
           left: 50%;
           bottom: 0;
           transform: translateX(-50%);
-          background-image: url('../../images/pc/header-arrow.png');
+          background-image: url('../../../images/pc/header-arrow.png');
           background-repeat: no-repeat;
           background-position: center;
         }
@@ -423,7 +423,7 @@ $namespace: "pc";
 
 @include b("footer") {
   min-height: 575px;
-  background-image: url('../../images/pc/footer/bg.png');
+  background-image: url('../../../images/pc/footer/bg.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
@@ -439,7 +439,7 @@ $namespace: "pc";
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("../../images/pc/footer/bg-center.png");
+    background-image: url("../../../images/pc/footer/bg-center.png");
     background-size: cover
   }
   @include e("logos") {

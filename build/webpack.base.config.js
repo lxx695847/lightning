@@ -151,7 +151,7 @@ module.exports = {
               // 当小于某KB时转为base64
               limit: 0,
               name: "[name].[ext]",
-              publicPath: "../../images",
+              publicPath: "../../../images",
               esModule: false, //解决方法
             },
           },
@@ -168,7 +168,7 @@ module.exports = {
               outputPath: "images/",
               // 当小于某KB时转为base64
               limit: 10000,
-              publicPath: "../../images",
+              publicPath: "../../../images",
               name: "[name].[ext]",
               esModule: false, //解决方法
             },

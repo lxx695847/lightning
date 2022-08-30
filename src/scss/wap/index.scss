@@ -73,7 +73,7 @@
       font-weight: bold;
       // img {
       //   height: 100%;
-      //   object-fit: contain;  
+      //   object-fit: contain;
       // }
       font-size: rem(36);
       color: #fad54d;
@@ -138,7 +138,7 @@
         height: 100%;
         object-fit: cover;
       }
-      .icon-play {    
+      .icon-play {
         width: rem(60);
         height: rem(60);
         position: absolute;
@@ -146,7 +146,7 @@
         left: 50%;
         transform: scale(0.8);
         position: absolute;
-        background: url('../../images/wap/game/game-play.png') no-repeat;
+        background: url('../../../images/wap/game/game-play.png') no-repeat;
         background-size: contain;
         transform: translate(-50%, -50%);
       }
@@ -179,7 +179,7 @@
           height: 100%;
           object-fit: cover;
         }
-        .icon-play {    
+        .icon-play {
           width: rem(60);
           height: rem(60);
           position: absolute;
@@ -187,12 +187,12 @@
           left: 50%;
           transform: scale(0.5);
           position: absolute;
-          background: url('../../images/wap/game/game-play.png') no-repeat;
+          background: url('../../../images/wap/game/game-play.png') no-repeat;
           background-size: contain;
           transform: translate(-50%, -50%);
         }
       }
-      
+
       .info {
         flex:1;
         display: flex;
@@ -203,11 +203,11 @@
           font-size: rem(30);
           font-weight: 500;
           color: #4D4D4D;
-          overflow: hidden; 
+          overflow: hidden;
           text-overflow: ellipsis;
-          display: -webkit-box; 
+          display: -webkit-box;
           -webkit-box-orient: vertical;
-          -webkit-line-clamp: 2; 
+          -webkit-line-clamp: 2;
         }
         p:nth-child(2) {
           font-size: rem(22);
@@ -221,4 +221,4 @@
       margin-bottom: rem(62);
     }
   }
-} 
+}

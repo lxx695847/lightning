@@ -27,7 +27,7 @@ export default Vue.extend({
   `,
   data() {
     return {
-      langImg: require(`../../images/wap-lang-${this.$langPre === 'zh' ? 'en' : 'zh'}.png`),
+      langImg: require(`../../../images/wap-lang-${this.$langPre === 'zh' ? 'en' : 'zh'}.png`),
       openMenu: false,
       activeIndex: 0,
       menus: []

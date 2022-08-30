@@ -3,7 +3,7 @@
 .lt-wap {
   position: relative;
   min-height: 100vh;
-  
+
 }
 .h-style {
   .content {
@@ -39,7 +39,7 @@
 }
 [v-cloak]{
   background-color: #171616;
-  background-image: url('../../images/logo.png');
+  background-image: url('../../../images/logo.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -89,7 +89,7 @@ $box-padding: rem(30);
     .img-box {
       width: rem(172);
       height: rem(55);
-      background-image: url("../../images/wap/logo-wap.png");
+      background-image: url("../../../images/wap/logo-wap.png");
       background-size: contain;
     }
   }
@@ -98,8 +98,8 @@ $box-padding: rem(30);
     width: rem(33);
     height: rem(24);
     display: flex;
-    background-image: url("../../images/wap/menus.png");
-    background-size: cover;          
+    background-image: url("../../../images/wap/menus.png");
+    background-size: cover;
   }
   .van-popup {
     top: rem(88)!important;
@@ -134,7 +134,7 @@ $box-padding: rem(30);
   display: flex;
   min-height: rem(400);
   padding: rem(68) 0 0;
-  background-image: url('../../images/wap/footer-bg.png');
+  background-image: url('../../../images/wap/footer-bg.png');
   background-repeat: no-repeat;
   background-size: 100%;
   @include e(container) {
